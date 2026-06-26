@@ -22,14 +22,14 @@ const ALIASES = {
 };
 
 // Extensions tried when a specifier omits one, plus index resolution.
-const EXTS = ['', '.js', '.mjs', '.wgsl'];
-const INDEX = ['index.js', 'index.mjs'];
+const EXTS = ['', '.ts', '.js', '.mjs', '.wgsl'];
+const INDEX = ['index.ts', 'index.js', 'index.mjs'];
 
 function walk(dir, out = []) {
     for (const name of readdirSync(dir)) {
         const full = join(dir, name);
         if (statSync(full).isDirectory()) walk(full, out);
-        else if (/\.(js|mjs)$/.test(name)) out.push(full);
+        else if (/\.(ts|js|mjs)$/.test(name) && !name.endsWith('.d.ts')) out.push(full);
     }
     return out;
 }
@@ -69,10 +69,15 @@ function resolveSpecifier(spec, fromFile) {
     // Bare specifier with no alias match => external package.
     if (basePath === null) return { external: true, id: raw.split('/')[0] };
 
-    for (const ext of EXTS) {
-        const candidate = basePath + ext;
-        if (existsSync(candidate) && statSync(candidate).isFile()) {
-            return { id: relative(ROOT, candidate) };
+    // A `.js`/`.mjs` specifier may point at a `.ts` sibling (bundler resolution),
+    // so also probe the extension-stripped base.
+    const bases = [basePath, basePath.replace(/\.(js|mjs)$/, '')];
+    for (const base of bases) {
+        for (const ext of EXTS) {
+            const candidate = base + ext;
+            if (existsSync(candidate) && statSync(candidate).isFile()) {
+                return { id: relative(ROOT, candidate) };
+            }
         }
     }
     for (const idx of INDEX) {

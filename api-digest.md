@@ -2,117 +2,254 @@
 
 Terse public-surface index of `src/` for navigation: read a file’s API without opening it. Exported classes (with public method signatures), functions, consts, and barrel re-exports. Private (`_`-prefixed) methods and accessors omitted. Auto-generated — regenerate with `node scripts/build-api-digest.mjs`. Pairs with AGENTS.md (rationale) and module-graph.json (import edges).
 
-## core
+## src
 
-### src/core/Camera.js
+### examples\Loader.ts
+- **class Loader**
+  - constructor(renderer: Renderer, { el = '#ogpu-loader' }: LoaderOptions = {})
+
+### examples\computefrustumculling\ComputeFrustumCulling.ts
+- **class ComputeFrustumCulling**
+  - constructor()
+  - init()
+  - cameraPath(vec: Vec3, time: number, y: number)
+
+### examples\cubemap\CubeMap.ts
+- **class CubeMapExample**
+  - constructor()
+  - init()
+
+### examples\frustumculling\FrustumCulling.ts
+- **class FrustumCulling**
+  - constructor()
+  - init()
+  - cameraPath(vec: Vec3, time: number, y: number)
+
+### examples\gltf\GLTF.ts
+- **class GLTF**
+  - constructor(canvas: HTMLElement | null)
+  - init(canvas: HTMLElement | null)
+  - initIBL({ url = './assets/pbr/artistworkshop_oct.exr', shUrl = './assets/pbr/artistworkshop_sh.js…)
+
+### examples\hellowebgpu\BoxMesh.ts
+- **class BoxMesh** extends Transform
+  - constructor(gpu: GPU)
+
+### examples\hellowebgpu\HelloWebGPU.ts
+- **class HelloWebGPU**
+  - constructor()
+  - init()
+
+### examples\hellowebgpu\uniformStruct.ts
+- fn `makeUniformStruct(gpu: GPU, def: any, values: Record<string, unknown>, label: string)`
+
+### examples\instancing\Instancing.ts
+- **class Instancing**
+  - constructor()
+  - init()
+
+### examples\instancingpicking\InstancingPicking.ts
+- **class InstancingPicking**
+  - constructor()
+  - init()
+
+### examples\ktx\KTX.ts
+- **class KTX**
+  - constructor()
+  - init()
+  - addInfo(text: string)
+
+### examples\msaa\MSAA.ts
+- **class MSAA**
+  - constructor()
+  - init()
+  - buildTarget(sampleCount: number)
+  - initDisplay()
+  - displayBindGroup()
+  - bindDisplay()
+
+### examples\orbitcontrols\OrbitControls.ts
+- **class OrbitControls**
+  - constructor()
+  - init()
+  - addCredit()
+
+### examples\particles\Particles.ts
+- **class Particles**
+  - constructor()
+  - init()
+
+### examples\pbrshader\PBRShader.ts
+- **class PBRShader**
+  - constructor({ el = null }: { el?: HTMLElement | null } = {})
+  - init(el: HTMLElement | null)
+  - initTestScene()
+  - loadTexture(url: string)
+  - swizzleRMO(url: string)
+  - addCarPart(jsonUrl: string, maps: CarMaps, { transparent = false } = {})
+  - addShadowFloor()
+  - initProbes(ibl: IBLResult)
+  - initIBL({ url = './assets/pbr/artistworkshop_oct.exr', shUrl = './assets/pbr/artistworkshop_sh.js…)
+  - solidTexture(rgba: number[], label: string)
+  - initPane()
+
+### examples\primitives\Primitives.ts
+- **class Primitives**
+  - constructor()
+  - init()
+
+### examples\raycasting\Raycasting.ts
+- **class Raycasting**
+  - constructor()
+  - init()
+
+### examples\rendertotexture\RenderToTexture.ts
+- **class RenderToTexture**
+  - constructor({ el = null }: { el?: HTMLElement | null } = {})
+  - init(el: HTMLElement | null)
+  - initDisplay()
+  - initTestScene()
+
+### examples\scenegraph\SceneGraph.ts
+- **class SceneGraph**
+  - constructor()
+  - init()
+
+### examples\shadowmapping\Shadowmapping.ts
+- **class Shadowmapping**
+  - constructor({ el = null }: { el?: HTMLElement | null } = {})
+  - init(el: HTMLElement | null)
+
+### examples\skinning\Skinning.ts
+- **class Skinning**
+  - constructor(canvas: HTMLElement | null)
+  - init(canvas: HTMLElement | null)
+  - addCredit(html: string)
+
+### examples\sorttransparency\SortTransparency.ts
+- **class SortTransparency**
+  - constructor()
+  - init()
+
+### examples\textures\Textures.ts
+- **class Textures**
+  - constructor()
+  - init()
+
+### examples\triangle\Triangle.ts
+- **class Triangle**
+  - constructor()
+  - init()
+
+### src\core\Camera.ts
 - **class Camera** extends Transform
-  - constructor({ near = 0.1, far = 100, fov = 45, aspect = 1, left, right, bottom, top, zoom = 1 } = {})
-  - perspective({ near = this.near, far = this.far, fov = this.fov, aspect = this.aspect } = {})
-  - orthographic({ near = this.near, far = this.far, left = this.left || -1, right = this.right || 1, bott…)
-  - updateMatrixWorld()
+  - constructor({ near = 0.1, far = 100, fov = 45, aspect = 1, left, right, bottom, top, zoom = 1 }: Came…)
+  - perspective({ near = this.near, far = this.far, fov = this.fov, aspect = this.aspect }: CameraOptions…)
+  - orthographic({ near = this.near, far = this.far, left = this.left ?? -1, right = this.right ?? 1, bott…)
+  - updateMatrixWorld(force?: boolean)
   - updateProjectionMatrix()
-  - lookAt(target)
-  - project(v)
-  - unproject(v)
+  - lookAt(target: ArrayLike<number>)
+  - project(v: Vec3)
+  - unproject(v: Vec3)
   - updateFrustum()
-  - frustumIntersectsMesh(node, worldMatrix = node.worldMatrix)
-  - frustumIntersectsSphere(center, radius)
-  - getFrustumSize(z)
+  - frustumIntersectsMesh(node: any, worldMatrix: Mat4 = node.worldMatrix)
+  - frustumIntersectsSphere(center: Vec3, radius: number)
+  - getFrustumSize(z?: number)
 
-### src/core/ComputeShader.js
+### src\core\ComputeShader.ts
 - **class ComputeShader**
-  - constructor(gpu, { label = '', code = ``, layout = 'auto', constants = {}, size = 0 } = {})
-  - build(code)
-  - reload(code)
-  - isValidKernel(key)
-  - findKernel(key)
-  - bindGroupLayout(kernelOrKey, groupIndex = 0)
-  - dispatch(encoder, { pass = null, kernel, bindGroup, bindGroupIndex = 0, dispatchCount, workgroupBu…)
+  - constructor(gpu: GPU, { label = '', code = ``, layout = 'auto' as GPUPipelineLayout | 'auto', constan…)
+  - build(code: string)
+  - reload(code: string)
+  - isValidKernel(key: string)
+  - findKernel(key: string)
+  - bindGroupLayout(kernelOrKey: GPUComputePipeline | string, groupIndex = 0)
+  - dispatch(encoder: GPUCommandEncoder, { pass = null, kernel, bindGroup, bindGroupIndex = 0, dispatc…)
 
-### src/core/Geometry.js
+### src\core\Geometry.ts
 - **class Geometry**
-  - constructor(gpu, { data, instancedData, interleave = false, drawBuffer = null } = {})
-  - computeBoundingBox(attr = this._positionAttr())
-  - computeBoundingSphere(attr = this._positionAttr())
+  - constructor(gpu: GPU, { data, instancedData, interleave = false, drawBuffer = null }: GeometryOptions…)
+  - computeBoundingBox(attr: PositionAttr | null = this._positionAttr())
+  - computeBoundingSphere(attr: PositionAttr | null = this._positionAttr())
   - destroy()
 
-### src/core/Mesh.js
+### src\core\Mesh.ts
 - **class Mesh** extends Transform
-  - constructor(gpu, { label = 'basic mesh', pipeline, geometry, bindGroups, manualRender = false, render…)
-  - onBeforeRender(f)
-  - onAfterRender(f)
-  - draw({ camera = null, pass, time = 0 } = {})
+  - constructor(gpu: GPU, { label = 'basic mesh', pipeline, geometry, bindGroups, manualRender = false, r…)
+  - onBeforeRender(f: RenderCallback)
+  - onAfterRender(f: RenderCallback)
+  - draw({ camera = null, pass, time = 0 }: DrawArgs)
 
-### src/core/RenderPipeline.js
+### src\core\RenderPipeline.ts
 - **class RenderPipeline**
-  - constructor(gpu, { label = 'rendering', code = ``, vertexBuffers = [], targets, depthTest = true, dep…)
-  - build(code)
+  - constructor(gpu: GPU, { label = 'rendering', code = ``, vertexBuffers = [], targets, depthTest = true…)
+  - build(code: string)
   - bindGroupLayout(groupIndex = 0)
-  - reload(code)
+  - reload(code: string)
   - destroy()
 
-### src/core/RenderTarget.js
+### src\core\RenderTarget.ts
 - **class RenderTarget**
-  - constructor(gpu, { width = 1280, height = 720, depth = 1, format = 'bgra8unorm', dimension = '2d', co…)
+  - constructor(gpu: GPU, { width = 1280, height = 720, depth = 1, format = 'bgra8unorm' as GPUTextureFor…)
   - createTextures()
   - createDepthTexture()
   - createView(i = 0)
   - getTargets()
   - destroy()
-  - onResize({ width, height, depth } = {})
+  - onResize({ width, height, depth }: { width?: number; height?: number; depth?: number } = {})
 
-### src/core/Renderer.js
+### src\core\Renderer.ts
 - **class Renderer**
-  - constructor({ canvas = null, dpr = null, transparent = false, depth = true, stencil = true } = {})
+  - constructor({ canvas = null, dpr = null, transparent = false, depth = true, stencil = true }: Rendere…)
   - initDevice()
-  - init(device)
+  - init(device: GPUDevice)
   - createDepthTexture()
   - addHandlers()
-  - addResizeHandler(cb)
-  - add(f)
-  - remove(f)
-  - addDeviceLostHandler(cb)
-  - addDeviceRestoredHandler(cb)
-  - addBootProgressHandler(cb)
-  - addBootCompleteHandler(cb)
+  - addResizeHandler(cb: (w: number, h: number) => void)
+  - add(f: (args: UpdateArgs) => void)
+  - remove(f: (args: UpdateArgs) => void)
+  - addDeviceLostHandler(cb: (info: GPUDeviceLostInfo) => void)
+  - addDeviceRestoredHandler(cb: (gpu: GPU) => void)
+  - addBootProgressHandler(cb: (pct: number) => void)
+  - addBootCompleteHandler(cb: () => void)
   - forceDeviceLoss()
-  - setClearColor({ r = 0, g = 0, b = 0, a = this.transparent ? 0 : 1 } = {})
-  - trackCompile(promise)
+  - setClearColor({ r = 0, g = 0, b = 0, a = this.transparent ? 0 : 1 }: Partial<ClearColor> = {})
+  - trackCompile(promise: Promise<any>)
   - updateClock(time = 0)
-  - sortOpaque(a, b)
-  - sortTransparent(a, b)
-  - sortUI(a, b)
-  - getRenderQueue({ scene, camera, sort = true, frustumCull = true } = {})
+  - sortOpaque(a: any, b: any)
+  - sortTransparent(a: any, b: any)
+  - sortUI(a: any, b: any)
+  - getRenderQueue({ scene, camera, sort = true, frustumCull = true }: { scene: Transform; camera?: Camera; …)
   - render({ scene, camera, target = null, loadOp = 'clear', storeOp = 'store', depthLoadOp = 'clear…)
 
-### src/core/ShaderReload.js
-- fn `registerShader(instance)`
+### src\core\ShaderReload.ts
+- fn `registerShader(instance: ShaderInstance)`
 
-### src/core/Texture.js
+### src\core\Texture.ts
 - **class Texture**
-  - constructor(gpu, { width = 2, height = 2, depth = 1, data = null, format = 'rgba8unorm', dimension = …)
-  - update({ width = 2, height = 2, depth = 1, data, format = 'rgba8unorm', dimension = '2d', usage …)
+  - constructor(gpu: GPU, { width = 2, height = 2, depth = 1, data = null, format = 'rgba8unorm' as GPUTe…)
+  - update({ width = 2, height = 2, depth = 1, data, format = 'rgba8unorm' as GPUTextureFormat, dime…)
   - createView()
   - destroy()
 
-### src/core/Transform.js
+### src\core\Transform.ts
 - **class Transform**
   - constructor()
-  - setParent(parent, notifyParent = true)
-  - addChild(child, notifyChild = true)
-  - removeChild(child, notifyChild = true)
-  - updateMatrixWorld(force)
+  - setParent(parent: Transform | null, notifyParent = true)
+  - addChild(child: Transform, notifyChild = true)
+  - removeChild(child: Transform, notifyChild = true)
+  - updateMatrixWorld(force?: boolean)
   - updateMatrix()
-  - traverse(callback)
-  - lookAt(target, invert)
+  - traverse(callback: (node: Transform) => boolean | void)
+  - lookAt(target: ArrayLike<number>, invert?: boolean)
   - decompose()
-  - setRotation(quaternion)
-  - rotateX(angle)
-  - rotateY(angle)
-  - rotateZ(angle)
-  - getEuler(out = new Euler())
+  - setRotation(quaternion: Quat)
+  - rotateX(angle: number)
+  - rotateY(angle: number)
+  - rotateZ(angle: number)
+  - getEuler(out: Euler = new Euler())
 
-### src/core/index.js
+### src\core\index.ts
 - re-export { Renderer } from './Renderer.js'
 - re-export { Transform } from './Transform.js'
 - re-export { Camera } from './Camera.js'
@@ -125,47 +262,47 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 - re-export { RenderTarget } from './RenderTarget.js'
 - re-export { Skin } from './skin/Skin.js'
 
-### src/core/primitives/Box.js
+### src\core\primitives\Box.ts
 - **class Box** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: BoxOptions = {})
 
-### src/core/primitives/Cone.js
+### src\core\primitives\Cone.ts
 - **class Cone** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: ConeOptions = {})
 
-### src/core/primitives/Cylinder.js
+### src\core\primitives\Cylinder.ts
 - **class Cylinder** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: CylinderOptions = {})
 
-### src/core/primitives/Disc.js
+### src\core\primitives\Disc.ts
 - **class Disc** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: DiscOptions = {})
 
-### src/core/primitives/FullscreenTriangle.js
+### src\core\primitives\FullscreenTriangle.ts
 - **class FullscreenTriangle** extends Geometry
-  - constructor(gpu, { instancedData, interleave } = {})
+  - constructor(gpu: GPU, { instancedData, interleave }: FullscreenTriangleOptions = {})
 
-### src/core/primitives/Plane.js
+### src\core\primitives\Plane.ts
 - **class Plane** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: PlaneOptions = {})
 
-### src/core/primitives/Quad.js
+### src\core\primitives\Quad.ts
 - **class Quad** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: QuadOptions = {})
 
-### src/core/primitives/Sphere.js
+### src\core\primitives\Sphere.ts
 - **class Sphere** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: SphereOptions = {})
 
-### src/core/primitives/ThreeDF.js
+### src\core\primitives\ThreeDF.ts
 - **class ThreeDF** extends Geometry
-  - constructor(gpu, { instancedData, interleave } = {})
+  - constructor(gpu: GPU, { instancedData, interleave }: ThreeDFOptions = {})
 
-### src/core/primitives/Torus.js
+### src\core\primitives\Torus.ts
 - **class Torus** extends Geometry
-  - constructor(gpu, { instancedData, interleave, ...opts } = {})
+  - constructor(gpu: GPU, { instancedData, interleave, ...opts }: TorusOptions = {})
 
-### src/core/primitives/index.js
+### src\core\primitives\index.ts
 - re-export { Box } from './Box.js'
 - re-export { Sphere } from './Sphere.js'
 - re-export { Plane } from './Plane.js'
@@ -177,268 +314,19 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 - re-export { ThreeDF } from './ThreeDF.js'
 - re-export { FullscreenTriangle } from './FullscreenTriangle.js'
 
-### src/core/skin/Skin.js
+### src\core\skin\Skin.ts
 - **class Skin**
-  - constructor(gpu, { label = 'skin', data } = {})
+  - constructor(gpu: GPU, { label = 'skin', data }: SkinOptions)
   - initBones()
-  - createGeometryBuffer(name, size, data)
+  - createGeometryBuffer(name: string, size: number, data: ArrayBufferView)
   - initSkinning()
-  - addAnimation(animation)
-  - getAnimation(label)
+  - addAnimation(animation: any)
+  - getAnimation(label: string)
   - applyAnimations()
   - updateBones()
-  - update(dt = 0)
+  - update(dt: number = 0)
 
-## modules
-
-### src/modules/Animation.js
-- **class Animation**
-  - constructor({ transforms = [], label = 'animation', data = [], loop = true } = {})
-  - fps(value)
-  - update(totalWeight = 1, isSet = false)
-
-### src/modules/CubeMap.js
-- **class CubeMap**
-  - constructor(gpu, { src = [], mips = false, flipY = false, usage = GPUTextureUsage.TEXTURE_BINDING | G…)
-  - destroy()
-
-### src/modules/GLTFLoader.js
-- **class GLTFLoader**
-  - constructor(gpu, { code, iblEntries = [], // override constants baked into the shader (e.g. roughness…)
-  - load(url)
-  - getSkinData(meshOrIndex = 0)
-  - getGeometryData(meshOrIndex = 0)
-  - getGeometry(meshOrIndex = 0)
-  - getAnimation({ animation = 0, skin = 0, fps = 30 } = {})
-
-### src/modules/GUI.js
-- **class GUI**
-  - constructor({ title = 'OGPU', expanded = false, container, pane } = {})
-  - add(obj, key, opts = {})
-  - monitor(obj, key, opts = {})
-  - button(title, onClick)
-  - folder(title, { expanded = true } = {})
-  - uniform(target, key, opts = {})
-  - dispose()
-
-### src/modules/KTXTexture.js
-- **class KTXTexture** extends Texture
-  - constructor(gpu, { src, usage = GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST, label = '…)
-
-### src/modules/Orbit.js
-- fn `Orbit(object, { element = document, enabled = true, target = new Vec3(0, 0, 0), ease = 0.25, in…)`
-
-### src/modules/Raycast.js
-- **class Raycast**
-  - constructor()
-  - castMouse(camera, mouse = [0, 0])
-  - intersectBounds(meshes, { maxDistance, output = [] } = {})
-  - intersectMeshes(meshes, { cullFace = true, maxDistance, includeUV = true, includeNormal = true, output = …)
-  - intersectPlane(plane, origin = this.origin, direction = this.direction, out = null)
-  - intersectSphere(sphere, origin = this.origin, direction = this.direction)
-  - intersectBox(box, origin = this.origin, direction = this.direction)
-  - intersectTriangle(a, b, c, backfaceCulling = true, origin = this.origin, direction = this.direction, normal…)
-  - getBarycoord(point, a, b, c, target = tempVec3h)
-
-### src/modules/VideoTexture.js
-- **class VideoTexture**
-  - constructor(gpu, { video, format = 'rgba8unorm', label = '', autoStart = true, flipY = false } = {})
-  - start()
-  - stop()
-  - createView()
-  - destroy()
-
-## utils
-
-### src/utils/BufferUtils.js
-- fn `createStorageBuffer(gpu, { label = 'storage buffer', size = null, usage = GPUBufferUsage.COPY_DST | GPUBuffer…)`
-- fn `createUniformBuffer(gpu, { label = 'uniform buffer', size = null, usage = GPUBufferUsage.COPY_DST } = {})`
-- fn `createBuffer(gpu, { label = 'buffer', size = null, usage = GPUBufferUsage.COPY_DST | GPUBufferUsage.CO…)`
-
-### src/utils/EulerUtils.js
-- fn `fromRotationMatrix(m, order = 'YXZ', out)`
-
-### src/utils/IBLUtils/IBLUtils.js
-- fn `loadIBLCubeMap(gpu, { url, faceSize = DEFAULT_FACE_SIZE, mipLevels = null, label = 'IBL cube' } = {})`
-- fn `loadSphericalHarmonics(url)`
-
-### src/utils/JSONLoader.js
-- fn `loadJSON(url, opts)`
-- fn `loadJSONAll(urls, opts)`
-
-### src/utils/Mat3Utils.js
-- fn `adjugate(m, dstMat)`
-
-### src/utils/Mat4Utils.js
-- fn `compose(dstMat, srcRotation, srcTranslation, srcScale)`
-- fn `decompose(srcMat, dstRotation, dstTranslation, dstScale)`
-
-### src/utils/TimingHelper.js
-- **class TimingHelper**
-  - constructor(device)
-  - beginRenderPass(encoder, descriptor = {})
-  - beginComputePass(encoder, descriptor = {})
-  - getResult()
-
-### src/utils/ktxutils.js
-- fn `formatBlockInfo(format)`
-- fn `parseKTXHeader(u8)`
-- fn `vkFormatToWebGPU(fmt)`
-- fn `glFormatToWebGPU(fmt)`
-
-### src/utils/miscutils.js
-- **class NonNegativeRollingAverage**
-  - constructor(numSamples = 30)
-  - addSample(v)
-
-### src/utils/utils.js
-- fn `getPromise()`
-
-### src/utils/wgslOverrides.js
-- fn `applyOverrideConstants(code, constants = {})`
-
-## examples
-
-### examples/Loader.js
-- **class Loader**
-  - constructor(renderer, { el = '#ogpu-loader' } = {})
-
-### examples/computefrustumculling/ComputeFrustumCulling.js
-- **class ComputeFrustumCulling**
-  - constructor()
-  - init()
-  - cameraPath(vec, time, y)
-
-### examples/cubemap/CubeMap.js
-- **class CubeMapExample**
-  - constructor()
-  - init()
-
-### examples/frustumculling/FrustumCulling.js
-- **class FrustumCulling**
-  - constructor()
-  - init()
-  - cameraPath(vec, time, y)
-
-### examples/gltf/GLTF.js
-- **class GLTF**
-  - constructor(canvas)
-  - init(canvas)
-  - initIBL({ url = './assets/pbr/artistworkshop_oct.exr', shUrl = './assets/pbr/artistworkshop_sh.js…)
-
-### examples/hellowebgpu/BoxMesh.js
-- **class BoxMesh** extends Transform
-  - constructor(gpu)
-
-### examples/hellowebgpu/HelloWebGPU.js
-- **class HelloWebGPU**
-  - constructor()
-  - init()
-
-### examples/hellowebgpu/uniformStruct.js
-- fn `makeUniformStruct(gpu, def, values, label)`
-
-### examples/instancing/Instancing.js
-- **class Instancing**
-  - constructor()
-  - init()
-
-### examples/instancingpicking/InstancingPicking.js
-- **class InstancingPicking**
-  - constructor()
-  - init()
-
-### examples/ktx/KTX.js
-- **class KTX**
-  - constructor()
-  - init()
-  - addInfo(text)
-
-### examples/msaa/MSAA.js
-- **class MSAA**
-  - constructor()
-  - init()
-  - buildTarget(sampleCount)
-  - initDisplay()
-  - displayBindGroup()
-  - bindDisplay()
-
-### examples/orbitcontrols/OrbitControls.js
-- **class OrbitControls**
-  - constructor()
-  - init()
-  - addCredit()
-
-### examples/particles/Particles.js
-- **class Particles**
-  - constructor()
-  - init()
-
-### examples/pbrshader/PBRShader.js
-- **class PBRShader**
-  - constructor({ el = null } = {})
-  - init(el)
-  - initTestScene()
-  - loadTexture(url)
-  - swizzleRMO(url)
-  - addCarPart(jsonUrl, maps, { transparent = false } = {})
-  - addShadowFloor()
-  - initProbes(ibl)
-  - initIBL({ url = './assets/pbr/artistworkshop_oct.exr', shUrl = './assets/pbr/artistworkshop_sh.js…)
-  - solidTexture(rgba, label)
-  - initPane()
-
-### examples/primitives/Primitives.js
-- **class Primitives**
-  - constructor()
-  - init()
-
-### examples/raycasting/Raycasting.js
-- **class Raycasting**
-  - constructor()
-  - init()
-
-### examples/rendertotexture/RenderToTexture.js
-- **class RenderToTexture**
-  - constructor({ el = null } = {})
-  - init(el)
-  - initDisplay()
-  - initTestScene()
-
-### examples/scenegraph/SceneGraph.js
-- **class SceneGraph**
-  - constructor()
-  - init()
-
-### examples/shadowmapping/Shadowmapping.js
-- **class Shadowmapping**
-  - constructor({ el = null } = {})
-  - init(el)
-
-### examples/skinning/Skinning.js
-- **class Skinning**
-  - constructor(canvas)
-  - init(canvas)
-  - addCredit(html)
-
-### examples/sorttransparency/SortTransparency.js
-- **class SortTransparency**
-  - constructor()
-  - init()
-
-### examples/textures/Textures.js
-- **class Textures**
-  - constructor()
-  - init()
-
-### examples/triangle/Triangle.js
-- **class Triangle**
-  - constructor()
-  - init()
-
-## index.js
-
-### src/index.js
+### src\index.ts
 - re-export * from './core/index.js'
 - re-export * from './math/index.js'
 - re-export { Orbit } from './modules/Orbit.js'
@@ -455,195 +343,194 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 - re-export { TimingHelper } from './utils/TimingHelper.js'
 - re-export { applyOverrideConstants } from './utils/wgslOverrides.js'
 
-## math
-
-### src/math/Color.js
+### src\math\Color.ts
 - **class Color** extends Float32Array
-  - constructor(r, g, b)
-  - setHex(hex)
-  - copy(c)
+  - constructor(r?: number | string | ArrayLike<number>, g?: number, b?: number)
+  - setHex(hex: number | string)
+  - copy(c: ArrayLike<number>)
   - clone()
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
 
-### src/math/Euler.js
+### src\math\Euler.ts
 - **class Euler** extends Float32Array
   - constructor(x = 0, y = 0, z = 0, order = 'YXZ')
-  - copy(e)
+  - copy(e: ArrayLike<number> & { order?: string })
   - clone()
-  - setFromRotationMatrix(m, order = this.order)
-  - setFromQuaternion(q, order = this.order)
-  - reorder(order)
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
+  - setFromRotationMatrix(m: ArrayLike<number>, order = this.order)
+  - setFromQuaternion(q: ArrayLike<number>, order = this.order)
+  - reorder(order: string)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
 
-### src/math/Mat3.js
+### src\math\Mat3.ts
 - **class Mat3** extends Float32Array
   - constructor()
-  - copy(m)
+  - copy(m: ArrayLike<number>)
   - clone()
   - identity()
-  - multiply(m)
+  - multiply(m: ArrayLike<number>)
   - invert()
   - transpose()
-  - fromMat4(m)
-  - fromNormalMatrix(m)
-  - fromQuat(q)
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
+  - fromMat4(m: ArrayLike<number>)
+  - fromNormalMatrix(m: ArrayLike<number>)
+  - fromQuat(q: ArrayLike<number>)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
 
-### src/math/Mat4.js
+### src\math\Mat4.ts
 - **class Mat4** extends Float32Array
   - constructor()
-  - copy(m)
+  - copy(m: ArrayLike<number>)
   - clone()
   - identity()
-  - multiply(m)
-  - premultiply(m)
+  - multiply(m: ArrayLike<number>)
+  - premultiply(m: ArrayLike<number>)
   - invert()
   - transpose()
-  - fromQuat(q)
-  - compose(position, quaternion, scale)
-  - decompose(position, quaternion, scale)
-  - scale(v)
-  - translate(v)
-  - rotateX(angle)
-  - rotateY(angle)
-  - rotateZ(angle)
-  - perspective(fovy, aspect, near, far)
-  - ortho(left, right, bottom, top, near, far)
-  - lookAt(eye, target, up)
-  - aim(eye, target, up)
+  - fromQuat(q: ArrayLike<number>)
+  - compose(position: ArrayLike<number>, quaternion: ArrayLike<number>, scale: ArrayLike<number>)
+  - decompose(position: Vec3, quaternion: Quat, scale: Vec3)
+  - scale(v: ArrayLike<number>)
+  - translate(v: ArrayLike<number>)
+  - rotateX(angle: number)
+  - rotateY(angle: number)
+  - rotateZ(angle: number)
+  - perspective(fovy: number, aspect: number, near: number, far: number)
+  - ortho(left: number, right: number, bottom: number, top: number, near: number, far: number)
+  - lookAt(eye: ArrayLike<number>, target: ArrayLike<number>, up: ArrayLike<number>)
+  - aim(eye: ArrayLike<number>, target: ArrayLike<number>, up: ArrayLike<number>)
   - determinant()
-  - getTranslation(out)
-  - getScale(out)
-  - getRotation(out)
-  - getAxis(axis, out)
+  - getTranslation(out: Vec3)
+  - getScale(out: Vec3)
+  - getRotation(out: Quat)
+  - getAxis(axis: number, out: Vec3)
   - getMaxScaleOnAxis()
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
   - inverse()
-  - fromQuaternion(q)
+  - fromQuaternion(q: ArrayLike<number>)
 
-### src/math/Quat.js
+### src\math\Quat.ts
 - **class Quat** extends Float32Array
   - constructor(x = 0, y = 0, z = 0, w = 1)
-  - copy(q)
+  - copy(q: ArrayLike<number>)
   - clone()
   - identity()
-  - setFromEuler(x, y, z, order = 'xyz')
-  - setFromAxisAngle(axis, angle)
-  - setFromRotationMatrix(m)
-  - multiply(q)
-  - premultiply(q)
-  - rotateX(angle)
-  - rotateY(angle)
-  - rotateZ(angle)
-  - slerp(q, t)
+  - setFromEuler(x: number, y: number, z: number, order = 'xyz')
+  - setFromAxisAngle(axis: ArrayLike<number>, angle: number)
+  - setFromRotationMatrix(m: ArrayLike<number>)
+  - multiply(q: ArrayLike<number>)
+  - premultiply(q: ArrayLike<number>)
+  - rotateX(angle: number)
+  - rotateY(angle: number)
+  - rotateZ(angle: number)
+  - slerp(q: ArrayLike<number>, t: number)
   - invert()
   - conjugate()
   - normalize()
-  - dot(q)
+  - dot(q: ArrayLike<number>)
   - len()
-  - equals(q)
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
-  - fromEuler(x, y, z, order = 'xyz')
-  - fromAxisAngle(axis, angle)
+  - equals(q: ArrayLike<number>)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
+  - fromEuler(x: number, y: number, z: number, order = 'xyz')
+  - fromAxisAngle(axis: ArrayLike<number>, angle: number)
   - inverse()
 
-### src/math/Vec2.js
+### src\math\Vec2.ts
 - **class Vec2** extends Float32Array
   - constructor(x = 0, y = 0)
-  - copy(v)
+  - copy(v: ArrayLike<number>)
   - clone()
-  - add(v)
-  - sub(v)
-  - multiply(v)
-  - scale(s)
-  - multiplyScalar(s)
+  - add(v: ArrayLike<number>)
+  - sub(v: ArrayLike<number>)
+  - multiply(v: ArrayLike<number>)
+  - scale(s: number)
+  - multiplyScalar(s: number)
   - negate()
   - normalize()
-  - lerp(v, t)
-  - dot(v)
+  - lerp(v: ArrayLike<number>, t: number)
+  - applyMat3(m: ArrayLike<number>)
+  - dot(v: ArrayLike<number>)
   - len()
   - lenSq()
-  - distance(v)
-  - equals(v)
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
+  - distance(v: ArrayLike<number>)
+  - equals(v: ArrayLike<number>)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
   - squaredLen()
 
-### src/math/Vec3.js
+### src\math\Vec3.ts
 - **class Vec3** extends Float32Array
   - constructor(x = 0, y = 0, z = 0)
-  - copy(v)
+  - copy(v: ArrayLike<number>)
   - clone()
-  - add(v)
-  - sub(v)
-  - multiply(v)
-  - scale(s)
-  - multiplyScalar(s)
-  - addScaled(v, s)
+  - add(v: ArrayLike<number>)
+  - sub(v: ArrayLike<number>)
+  - multiply(v: ArrayLike<number>)
+  - scale(s: number)
+  - multiplyScalar(s: number)
+  - addScaled(v: ArrayLike<number>, s: number)
   - negate()
   - normalize()
-  - lerp(v, t)
-  - smoothLerp(v, decay, dt)
-  - divide(v)
-  - angle(v)
-  - cross(v)
-  - min(v)
-  - max(v)
-  - applyMat4(m)
-  - applyMat3(m)
-  - applyQuat(q)
-  - scaleRotateMat4(m)
-  - transformDirection(m)
-  - dot(v)
+  - lerp(v: ArrayLike<number>, t: number)
+  - smoothLerp(v: ArrayLike<number>, decay: number, dt: number)
+  - divide(v: ArrayLike<number>)
+  - angle(v: ArrayLike<number>)
+  - cross(v: ArrayLike<number>)
+  - min(v: ArrayLike<number>)
+  - max(v: ArrayLike<number>)
+  - applyMat4(m: ArrayLike<number>)
+  - applyMat3(m: ArrayLike<number>)
+  - applyQuat(q: ArrayLike<number>)
+  - scaleRotateMat4(m: ArrayLike<number>)
+  - transformDirection(m: ArrayLike<number>)
+  - dot(v: ArrayLike<number>)
   - len()
   - lenSq()
-  - distance(v)
-  - distanceSq(v)
-  - equals(v)
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
-  - applyMatrix4(m)
-  - applyMatrix3(m)
-  - applyQuaternion(q)
-  - scaleRotateMatrix4(m)
+  - distance(v: ArrayLike<number>)
+  - distanceSq(v: ArrayLike<number>)
+  - equals(v: ArrayLike<number>)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
+  - applyMatrix4(m: ArrayLike<number>)
+  - applyMatrix3(m: ArrayLike<number>)
+  - applyQuaternion(q: ArrayLike<number>)
+  - scaleRotateMatrix4(m: ArrayLike<number>)
   - squaredLen()
-  - squaredDistance(v)
+  - squaredDistance(v: ArrayLike<number>)
 
-### src/math/Vec4.js
+### src\math\Vec4.ts
 - **class Vec4** extends Float32Array
   - constructor(x = 0, y = 0, z = 0, w = 0)
-  - copy(v)
+  - copy(v: ArrayLike<number>)
   - clone()
-  - add(v)
-  - sub(v)
-  - multiply(v)
-  - scale(s)
-  - multiplyScalar(s)
-  - addScaled(v, s)
+  - add(v: ArrayLike<number>)
+  - sub(v: ArrayLike<number>)
+  - multiply(v: ArrayLike<number>)
+  - scale(s: number)
+  - multiplyScalar(s: number)
+  - addScaled(v: ArrayLike<number>, s: number)
   - negate()
   - normalize()
-  - lerp(v, t)
-  - min(v)
-  - max(v)
-  - applyMat4(m)
-  - dot(v)
+  - lerp(v: ArrayLike<number>, t: number)
+  - min(v: ArrayLike<number>)
+  - max(v: ArrayLike<number>)
+  - applyMat4(m: ArrayLike<number>)
+  - dot(v: ArrayLike<number>)
   - len()
   - lenSq()
-  - distance(v)
-  - distanceSq(v)
-  - equals(v)
-  - fromArray(a, o = 0)
-  - toArray(a = [], o = 0)
-  - applyMatrix4(m)
+  - distance(v: ArrayLike<number>)
+  - distanceSq(v: ArrayLike<number>)
+  - equals(v: ArrayLike<number>)
+  - fromArray(a: ArrayLike<number>, o = 0)
+  - toArray(a: number[] = [], o = 0)
+  - applyMatrix4(m: ArrayLike<number>)
   - squaredLen()
-  - squaredDistance(v)
+  - squaredDistance(v: ArrayLike<number>)
 
-### src/math/index.js
+### src\math\index.ts
 - re-export { Vec2 } from './Vec2'
 - re-export { Vec3 } from './Vec3'
 - re-export { Vec4 } from './Vec4'
@@ -652,3 +539,107 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 - re-export { Mat4 } from './Mat4'
 - re-export { Euler } from './Euler'
 - re-export { Color } from './Color'
+
+### src\modules\Animation.ts
+- **class Animation**
+  - constructor({ transforms = [], label = 'animation', data = [], loop = true }: AnimationOptions = {})
+  - fps(value?: number)
+  - update(totalWeight = 1, isSet = false)
+
+### src\modules\CubeMap.ts
+- **class CubeMap**
+  - constructor(gpu: GPU, { src = [], mips = false, flipY = false, usage = GPUTextureUsage.TEXTURE_BINDIN…)
+  - destroy()
+
+### src\modules\GLTFLoader.ts
+- **class GLTFLoader**
+  - constructor(gpu: GPU, { code, iblEntries = [], // override constants baked into the shader (e.g. roug…)
+  - load(url: string)
+  - getSkinData(meshOrIndex: number | any = 0)
+  - getGeometryData(meshOrIndex: number | any = 0)
+  - getGeometry(meshOrIndex: number | any = 0)
+  - getAnimation({ animation = 0, skin = 0, fps = 30 }: { animation?: number; skin?: number; fps?: number …)
+
+### src\modules\GUI.ts
+- **class GUI**
+  - constructor({ title = 'OGPU', expanded = false, container, pane }: GUIOptions = {})
+  - add(obj: object, key: string, opts: any = {})
+  - monitor(obj: object, key: string, opts: any = {})
+  - button(title: string, onClick: () => void)
+  - folder(title: string, { expanded = true }: { expanded?: boolean } = {})
+  - uniform(target: UniformTarget, key: string, opts: any = {})
+  - dispose()
+
+### src\modules\KTXTexture.ts
+- **class KTXTexture** extends Texture
+  - constructor(gpu: GPU, { src, usage = GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST, labe…)
+
+### src\modules\Orbit.ts
+- const `Orbit`
+
+### src\modules\Raycast.ts
+- **class Raycast**
+  - constructor()
+  - castMouse(camera: Camera, mouse: [number, number] = [0, 0])
+  - intersectBounds(meshes: Mesh | Mesh[], { maxDistance, output = [] }: RaycastBoundsOptions = {})
+  - intersectMeshes(meshes: Mesh | Mesh[], { cullFace = true, maxDistance, includeUV = true, includeNormal = …)
+  - intersectPlane(plane: Plane, origin = this.origin, direction = this.direction, out: Vec3 | null = null)
+  - intersectSphere(sphere: Pick<Bounds, 'center' | 'radius'>, origin = this.origin, direction = this.directi…)
+  - intersectBox(box: Pick<Bounds, 'min' | 'max'>, origin = this.origin, direction = this.direction)
+  - intersectTriangle(a: Vec3, b: Vec3, c: Vec3, backfaceCulling = true, origin = this.origin, direction = this…)
+  - getBarycoord(point: Vec3, a: Vec3, b: Vec3, c: Vec3, target = tempVec3h)
+
+### src\modules\VideoTexture.ts
+- **class VideoTexture**
+  - constructor(gpu: GPU, { video, format = 'rgba8unorm', label = '', autoStart = true, flipY = false }: …)
+  - start()
+  - stop()
+  - createView()
+  - destroy()
+
+### src\utils\BufferUtils.ts
+- fn `createStorageBuffer(gpu: GPU, { label = 'storage buffer', size = null, usage = GPUBufferUsage.COPY_DST | GPUB…)`
+- fn `createUniformBuffer(gpu: GPU, { label = 'uniform buffer', size = null, usage = GPUBufferUsage.COPY_DST }: Uni…)`
+- fn `createBuffer(gpu: GPU, { label = 'buffer', size = null, usage = GPUBufferUsage.COPY_DST | GPUBufferUsa…)`
+
+### src\utils\EulerUtils.ts
+- fn `fromRotationMatrix(m: ArrayLike<number>, order: string = 'YXZ', out: { [index: number]: number })`
+
+### src\utils\IBLUtils\IBLUtils.ts
+- fn `loadIBLCubeMap(gpu: GPU, { url, faceSize = DEFAULT_FACE_SIZE, mipLevels = null, label = 'IBL cube' }: IB…)`
+- fn `loadSphericalHarmonics(url: string)`
+
+### src\utils\JSONLoader.ts
+- fn `loadJSON(url: string, opts?: RequestInit)`
+- fn `loadJSONAll(urls: string[], opts?: RequestInit)`
+
+### src\utils\Mat3Utils.ts
+- fn `adjugate(m: any, dstMat: any)`
+
+### src\utils\Mat4Utils.ts
+- fn `compose(dstMat: ArrayLike<number> & { [index: number]: number }, srcRotation: ArrayLike<number>, …)`
+- fn `decompose(srcMat: any, dstRotation: any, dstTranslation: { [index: number]: number }, dstScale: { […)`
+
+### src\utils\TimingHelper.ts
+- **class TimingHelper**
+  - constructor(device: GPUDevice)
+  - beginRenderPass(encoder: GPUCommandEncoder, descriptor: GPURenderPassDescriptor = {} as GPURenderPassDesc…)
+  - beginComputePass(encoder: GPUCommandEncoder, descriptor: GPUComputePassDescriptor = {})
+  - getResult()
+
+### src\utils\ktxutils.ts
+- fn `formatBlockInfo(format: string)`
+- fn `parseKTXHeader(u8: Uint8Array)`
+- fn `vkFormatToWebGPU(fmt: number)`
+- fn `glFormatToWebGPU(fmt: number)`
+
+### src\utils\miscutils.ts
+- **class NonNegativeRollingAverage**
+  - constructor(numSamples: number = 30)
+  - addSample(v: number)
+
+### src\utils\utils.ts
+- const `getPromise`
+
+### src\utils\wgslOverrides.ts
+- fn `applyOverrideConstants(code: string, constants: Record<string, number> = {})`

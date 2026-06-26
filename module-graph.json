@@ -1,383 +1,383 @@
 {
   "description": "Static module dependency graph of src/ for agent navigation. nodes: source files (module), ?raw shaders (shader), packages (external). edges: imports. inDegree = import hubs. Regenerate via scripts/build-module-graph.mjs.",
   "stats": {
-    "nodes": 122,
-    "edges": 220,
-    "modules": 79,
+    "nodes": 123,
+    "edges": 285,
+    "modules": 80,
     "shaders": 36,
     "external": 7
   },
   "hubs": [
     {
-      "id": "src/core/Geometry.js",
-      "inDegree": 12
+      "id": "src\\types.ts",
+      "inDegree": 48
     },
     {
-      "id": "src/core/Texture.js",
+      "id": "src\\core\\Geometry.ts",
+      "inDegree": 14
+    },
+    {
+      "id": "src\\core\\Transform.ts",
+      "inDegree": 8
+    },
+    {
+      "id": "src\\core\\Texture.ts",
       "inDegree": 5
     },
     {
-      "id": "src/core/Transform.js",
+      "id": "src\\utils\\BufferUtils.ts",
       "inDegree": 5
     },
     {
-      "id": "src/utils/BufferUtils.js",
-      "inDegree": 5
+      "id": "src\\core\\Camera.ts",
+      "inDegree": 4
     },
     {
-      "id": "src/utils/wgslOverrides.js",
+      "id": "src\\core\\Mesh.ts",
+      "inDegree": 4
+    },
+    {
+      "id": "src\\core\\Renderer.ts",
       "inDegree": 3
     },
     {
-      "id": "examples/hellowebgpu/cube.wgsl",
-      "inDegree": 2
+      "id": "src\\core\\RenderPipeline.ts",
+      "inDegree": 3
     },
     {
-      "id": "examples/hellowebgpu/uniformStruct.js",
-      "inDegree": 2
+      "id": "src\\math\\Quat.ts",
+      "inDegree": 3
     },
     {
-      "id": "examples/sorttransparency/sorttransparency.wgsl",
-      "inDegree": 2
+      "id": "src\\utils\\wgslOverrides.ts",
+      "inDegree": 3
     },
     {
-      "id": "src/core/ComputeShader.js",
-      "inDegree": 2
-    },
-    {
-      "id": "src/core/Mesh.js",
-      "inDegree": 2
-    },
-    {
-      "id": "src/core/primitives/index.js",
-      "inDegree": 2
-    },
-    {
-      "id": "src/core/RenderPipeline.js",
+      "id": "examples\\hellowebgpu\\cube.wgsl",
       "inDegree": 2
     }
   ],
   "nodes": [
     {
-      "id": "examples/computefrustumculling/cameramarker.wgsl",
+      "id": "examples\\computefrustumculling\\cameramarker.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/computefrustumculling/ComputeFrustumCulling.js",
+      "id": "examples\\computefrustumculling\\ComputeFrustumCulling.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 5
+    },
+    {
+      "id": "examples\\computefrustumculling\\cull.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\computefrustumculling\\field.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\cubemap\\CubeMap.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "examples\\cubemap\\skybox.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\examples.css",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\frustumculling\\cameramarker.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\frustumculling\\field.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\frustumculling\\FrustumCulling.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 4
     },
     {
-      "id": "examples/computefrustumculling/cull.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/computefrustumculling/field.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/cubemap/CubeMap.js",
+      "id": "examples\\gltf\\GLTF.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 4
     },
     {
-      "id": "examples/cubemap/skybox.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/examples.css",
+      "id": "examples\\hellowebgpu\\BoxMesh.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 0
+      "outDegree": 4
     },
     {
-      "id": "examples/frustumculling/cameramarker.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/frustumculling/field.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/frustumculling/FrustumCulling.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 3
-    },
-    {
-      "id": "examples/gltf/GLTF.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 3
-    },
-    {
-      "id": "examples/hellowebgpu/BoxMesh.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 3
-    },
-    {
-      "id": "examples/hellowebgpu/cube.wgsl",
+      "id": "examples\\hellowebgpu\\cube.wgsl",
       "type": "shader",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "examples/hellowebgpu/HelloWebGPU.js",
+      "id": "examples\\hellowebgpu\\HelloWebGPU.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 4
+      "outDegree": 5
     },
     {
-      "id": "examples/hellowebgpu/uniformStruct.js",
+      "id": "examples\\hellowebgpu\\uniformStruct.ts",
       "type": "module",
       "inDegree": 2,
-      "outDegree": 2
+      "outDegree": 3
     },
     {
-      "id": "examples/instancing/instances.wgsl",
+      "id": "examples\\instancing\\instances.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/instancing/Instancing.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "examples/instancingpicking/instances.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/instancingpicking/InstancingPicking.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 4
-    },
-    {
-      "id": "examples/instancingpicking/picking.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/ktx/KTX.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "examples/ktx/ktx.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/Loader.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/msaa/display.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/msaa/MSAA.js",
+      "id": "examples\\instancing\\Instancing.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 3
     },
     {
-      "id": "examples/orbitcontrols/orbit.wgsl",
+      "id": "examples\\instancingpicking\\instances.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/orbitcontrols/OrbitControls.js",
+      "id": "examples\\instancingpicking\\InstancingPicking.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 5
     },
     {
-      "id": "examples/particles/Particles.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 4
-    },
-    {
-      "id": "examples/particles/particles.wgsl",
+      "id": "examples\\instancingpicking\\picking.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/particles/sim.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/pbrshader/PBRShader.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 7
-    },
-    {
-      "id": "examples/pbrshader/probe.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/pbrshader/shadow.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/primitives/Primitives.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "examples/primitives/primitives.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/raycasting/raycast.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/raycasting/Raycasting.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "examples/rendertotexture/cube.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/rendertotexture/display.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/rendertotexture/RenderToTexture.js",
+      "id": "examples\\ktx\\KTX.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 3
     },
     {
-      "id": "examples/scenegraph/SceneGraph.js",
+      "id": "examples\\ktx\\ktx.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\Loader.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 1
     },
     {
-      "id": "examples/scenegraph/scenegraph.wgsl",
+      "id": "examples\\msaa\\display.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/shadowmapping/cube.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/shadowmapping/shadow.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/shadowmapping/Shadowmapping.js",
+      "id": "examples\\msaa\\MSAA.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 4
     },
     {
-      "id": "examples/skinning/shadow.wgsl",
+      "id": "examples\\orbitcontrols\\orbit.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/skinning/skinnedmesh.wgsl",
-      "type": "shader",
-      "inDegree": 1,
-      "outDegree": 0
-    },
-    {
-      "id": "examples/skinning/Skinning.js",
+      "id": "examples\\orbitcontrols\\OrbitControls.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 3
     },
     {
-      "id": "examples/sorttransparency/SortTransparency.js",
+      "id": "examples\\particles\\Particles.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 5
     },
     {
-      "id": "examples/sorttransparency/sorttransparency.wgsl",
+      "id": "examples\\particles\\particles.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\particles\\sim.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\pbrshader\\PBRShader.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 8
+    },
+    {
+      "id": "examples\\pbrshader\\probe.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\pbrshader\\shadow.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\primitives\\Primitives.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "examples\\primitives\\primitives.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\raycasting\\raycast.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\raycasting\\Raycasting.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "examples\\rendertotexture\\cube.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\rendertotexture\\display.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\rendertotexture\\RenderToTexture.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 4
+    },
+    {
+      "id": "examples\\scenegraph\\SceneGraph.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "examples\\scenegraph\\scenegraph.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\shadowmapping\\cube.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\shadowmapping\\shadow.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\shadowmapping\\Shadowmapping.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 5
+    },
+    {
+      "id": "examples\\skinning\\shadow.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\skinning\\skinnedmesh.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples\\skinning\\Skinning.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 4
+    },
+    {
+      "id": "examples\\sorttransparency\\SortTransparency.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "examples\\sorttransparency\\sorttransparency.wgsl",
       "type": "shader",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "examples/textures/texturedObj.wgsl",
+      "id": "examples\\textures\\texturedObj.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "examples/textures/Textures.js",
+      "id": "examples\\textures\\Textures.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 3
     },
     {
-      "id": "examples/triangle/Triangle.js",
+      "id": "examples\\triangle\\Triangle.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 3
     },
     {
-      "id": "examples/triangle/triangle.wgsl",
+      "id": "examples\\triangle\\triangle.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
@@ -391,7 +391,7 @@
     {
       "id": "pkg:@math",
       "type": "external",
-      "inDegree": 10,
+      "inDegree": 11,
       "outDegree": 0
     },
     {
@@ -425,367 +425,373 @@
       "outDegree": 0
     },
     {
-      "id": "src/core/Camera.js",
+      "id": "src\\core\\Camera.ts",
       "type": "module",
-      "inDegree": 1,
+      "inDegree": 4,
       "outDegree": 2
     },
     {
-      "id": "src/core/ComputeShader.js",
+      "id": "src\\core\\ComputeShader.ts",
       "type": "module",
       "inDegree": 2,
+      "outDegree": 4
+    },
+    {
+      "id": "src\\core\\Geometry.ts",
+      "type": "module",
+      "inDegree": 14,
       "outDegree": 3
     },
     {
-      "id": "src/core/Geometry.js",
-      "type": "module",
-      "inDegree": 12,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/index.js",
+      "id": "src\\core\\index.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 12
     },
     {
-      "id": "src/core/Mesh.js",
+      "id": "src\\core\\Mesh.ts",
       "type": "module",
-      "inDegree": 2,
-      "outDegree": 4
+      "inDegree": 4,
+      "outDegree": 8
     },
     {
-      "id": "src/core/primitives/Box.js",
+      "id": "src\\core\\primitives\\Box.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\primitives\\Cone.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\primitives\\Cylinder.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\primitives\\Disc.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\primitives\\FullscreenTriangle.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 2
     },
     {
-      "id": "src/core/primitives/Cone.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/Cylinder.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/Disc.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/FullscreenTriangle.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 1
-    },
-    {
-      "id": "src/core/primitives/index.js",
+      "id": "src\\core\\primitives\\index.ts",
       "type": "module",
       "inDegree": 2,
       "outDegree": 11
     },
     {
-      "id": "src/core/primitives/Plane.js",
+      "id": "src\\core\\primitives\\Plane.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/Quad.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/Sphere.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/ThreeDF.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/primitives/Torus.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 2
-    },
-    {
-      "id": "src/core/Renderer.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 4
-    },
-    {
-      "id": "src/core/RenderPipeline.js",
-      "type": "module",
-      "inDegree": 2,
       "outDegree": 3
     },
     {
-      "id": "src/core/RenderTarget.js",
+      "id": "src\\core\\primitives\\Quad.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 1
+      "outDegree": 3
     },
     {
-      "id": "src/core/ShaderReload.js",
+      "id": "src\\core\\primitives\\Sphere.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\primitives\\ThreeDF.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\primitives\\Torus.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\core\\Renderer.ts",
+      "type": "module",
+      "inDegree": 3,
+      "outDegree": 9
+    },
+    {
+      "id": "src\\core\\RenderPipeline.ts",
+      "type": "module",
+      "inDegree": 3,
+      "outDegree": 5
+    },
+    {
+      "id": "src\\core\\RenderTarget.ts",
+      "type": "module",
+      "inDegree": 2,
+      "outDegree": 2
+    },
+    {
+      "id": "src\\core\\ShaderReload.ts",
       "type": "module",
       "inDegree": 2,
       "outDegree": 1
     },
     {
-      "id": "src/core/skin/Skin.js",
+      "id": "src\\core\\skin\\Skin.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 5
+      "outDegree": 6
     },
     {
-      "id": "src/core/skin/skin.wgsl",
+      "id": "src\\core\\skin\\skin.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/core/Texture.js",
+      "id": "src\\core\\Texture.ts",
       "type": "module",
       "inDegree": 5,
+      "outDegree": 2
+    },
+    {
+      "id": "src\\core\\Transform.ts",
+      "type": "module",
+      "inDegree": 8,
       "outDegree": 1
     },
     {
-      "id": "src/core/Transform.js",
-      "type": "module",
-      "inDegree": 5,
-      "outDegree": 1
-    },
-    {
-      "id": "src/core/x.wgsl",
+      "id": "src\\core\\x.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/index.js",
+      "id": "src\\index.ts",
       "type": "module",
       "inDegree": 0,
       "outDegree": 16
     },
     {
-      "id": "src/main.js",
+      "id": "src\\main.ts",
       "type": "module",
       "inDegree": 0,
       "outDegree": 24
     },
     {
-      "id": "src/math/Color.js",
+      "id": "src\\math\\Color.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/math/Euler.js",
+      "id": "src\\math\\Euler.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 3
     },
     {
-      "id": "src/math/index.js",
+      "id": "src\\math\\index.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 8
     },
     {
-      "id": "src/math/Mat3.js",
+      "id": "src\\math\\Mat3.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 2
     },
     {
-      "id": "src/math/Mat4.js",
+      "id": "src\\math\\Mat4.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 2
+      "outDegree": 4
     },
     {
-      "id": "src/math/Quat.js",
+      "id": "src\\math\\Quat.ts",
+      "type": "module",
+      "inDegree": 3,
+      "outDegree": 1
+    },
+    {
+      "id": "src\\math\\Vec2.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 1
+    },
+    {
+      "id": "src\\math\\Vec3.ts",
       "type": "module",
       "inDegree": 2,
       "outDegree": 1
     },
     {
-      "id": "src/math/Vec2.js",
+      "id": "src\\math\\Vec4.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 1
     },
     {
-      "id": "src/math/Vec3.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 1
-    },
-    {
-      "id": "src/math/Vec4.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 1
-    },
-    {
-      "id": "src/modules/Animation.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 1
-    },
-    {
-      "id": "src/modules/CubeMap.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 1
-    },
-    {
-      "id": "src/modules/GLTFLoader.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 7
-    },
-    {
-      "id": "src/modules/GUI.js",
-      "type": "module",
-      "inDegree": 1,
-      "outDegree": 1
-    },
-    {
-      "id": "src/modules/KTXTexture.js",
+      "id": "src\\modules\\Animation.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 2
     },
     {
-      "id": "src/modules/Orbit.js",
+      "id": "src\\modules\\CubeMap.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 2
+    },
+    {
+      "id": "src\\modules\\GLTFLoader.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 8
+    },
+    {
+      "id": "src\\modules\\GUI.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 1
     },
     {
-      "id": "src/modules/pbr/brdflut.wgsl",
+      "id": "src\\modules\\KTXTexture.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 3
+    },
+    {
+      "id": "src\\modules\\Orbit.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 2
+    },
+    {
+      "id": "src\\modules\\pbr\\brdflut.wgsl",
       "type": "shader",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "src/modules/pbr/pbr.wgsl",
+      "id": "src\\modules\\pbr\\pbr.wgsl",
       "type": "shader",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "src/modules/Raycast.js",
+      "id": "src\\modules\\Raycast.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 4
+    },
+    {
+      "id": "src\\modules\\VideoTexture.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 1
     },
     {
-      "id": "src/modules/VideoTexture.js",
+      "id": "src\\style.css",
       "type": "module",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/style.css",
+      "id": "src\\types.ts",
       "type": "module",
-      "inDegree": 1,
-      "outDegree": 0
+      "inDegree": 48,
+      "outDegree": 2
     },
     {
-      "id": "src/utils/BufferUtils.js",
+      "id": "src\\utils\\BufferUtils.ts",
       "type": "module",
       "inDegree": 5,
-      "outDegree": 0
+      "outDegree": 1
     },
     {
-      "id": "src/utils/EulerUtils.js",
+      "id": "src\\utils\\EulerUtils.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/utils/IBLUtils/ggx.wgsl",
+      "id": "src\\utils\\IBLUtils\\ggx.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/utils/IBLUtils/IBLUtils.js",
+      "id": "src\\utils\\IBLUtils\\IBLUtils.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 9
+      "outDegree": 10
     },
     {
-      "id": "src/utils/IBLUtils/unpackequirect.wgsl",
+      "id": "src\\utils\\IBLUtils\\unpackequirect.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/utils/IBLUtils/unpackoct.wgsl",
+      "id": "src\\utils\\IBLUtils\\unpackoct.wgsl",
       "type": "shader",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/utils/JSONLoader.js",
+      "id": "src\\utils\\JSONLoader.ts",
       "type": "module",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "src/utils/ktxutils.js",
+      "id": "src\\utils\\ktxutils.ts",
       "type": "module",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "src/utils/Mat3Utils.js",
+      "id": "src\\utils\\Mat3Utils.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 1
     },
     {
-      "id": "src/utils/Mat4Utils.js",
+      "id": "src\\utils\\Mat4Utils.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 1
     },
     {
-      "id": "src/utils/miscutils.js",
+      "id": "src\\utils\\miscutils.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/utils/TimingHelper.js",
+      "id": "src\\utils\\TimingHelper.ts",
       "type": "module",
       "inDegree": 2,
       "outDegree": 0
     },
     {
-      "id": "src/utils/utils.js",
+      "id": "src\\utils\\utils.ts",
       "type": "module",
       "inDegree": 1,
       "outDegree": 0
     },
     {
-      "id": "src/utils/wgslOverrides.js",
+      "id": "src\\utils\\wgslOverrides.ts",
       "type": "module",
       "inDegree": 3,
       "outDegree": 0
@@ -793,883 +799,1143 @@
   ],
   "edges": [
     {
-      "from": "examples/computefrustumculling/ComputeFrustumCulling.js",
-      "to": "examples/computefrustumculling/cameramarker.wgsl"
+      "from": "examples\\computefrustumculling\\ComputeFrustumCulling.ts",
+      "to": "examples\\computefrustumculling\\cameramarker.wgsl"
     },
     {
-      "from": "examples/computefrustumculling/ComputeFrustumCulling.js",
-      "to": "examples/computefrustumculling/cull.wgsl"
+      "from": "examples\\computefrustumculling\\ComputeFrustumCulling.ts",
+      "to": "examples\\computefrustumculling\\cull.wgsl"
     },
     {
-      "from": "examples/computefrustumculling/ComputeFrustumCulling.js",
-      "to": "examples/computefrustumculling/field.wgsl"
+      "from": "examples\\computefrustumculling\\ComputeFrustumCulling.ts",
+      "to": "examples\\computefrustumculling\\field.wgsl"
     },
     {
-      "from": "examples/computefrustumculling/ComputeFrustumCulling.js",
+      "from": "examples\\computefrustumculling\\ComputeFrustumCulling.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/cubemap/CubeMap.js",
-      "to": "examples/cubemap/skybox.wgsl"
+      "from": "examples\\computefrustumculling\\ComputeFrustumCulling.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/cubemap/CubeMap.js",
+      "from": "examples\\cubemap\\CubeMap.ts",
+      "to": "examples\\cubemap\\skybox.wgsl"
+    },
+    {
+      "from": "examples\\cubemap\\CubeMap.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/frustumculling/FrustumCulling.js",
-      "to": "examples/frustumculling/cameramarker.wgsl"
+      "from": "examples\\cubemap\\CubeMap.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/frustumculling/FrustumCulling.js",
-      "to": "examples/frustumculling/field.wgsl"
+      "from": "examples\\frustumculling\\FrustumCulling.ts",
+      "to": "examples\\frustumculling\\cameramarker.wgsl"
     },
     {
-      "from": "examples/frustumculling/FrustumCulling.js",
+      "from": "examples\\frustumculling\\FrustumCulling.ts",
+      "to": "examples\\frustumculling\\field.wgsl"
+    },
+    {
+      "from": "examples\\frustumculling\\FrustumCulling.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/gltf/GLTF.js",
+      "from": "examples\\frustumculling\\FrustumCulling.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "examples\\gltf\\GLTF.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/gltf/GLTF.js",
-      "to": "src/modules/pbr/brdflut.wgsl"
+      "from": "examples\\gltf\\GLTF.ts",
+      "to": "src\\modules\\pbr\\brdflut.wgsl"
     },
     {
-      "from": "examples/gltf/GLTF.js",
-      "to": "src/modules/pbr/pbr.wgsl"
+      "from": "examples\\gltf\\GLTF.ts",
+      "to": "src\\modules\\pbr\\pbr.wgsl"
     },
     {
-      "from": "examples/hellowebgpu/BoxMesh.js",
-      "to": "examples/hellowebgpu/cube.wgsl"
+      "from": "examples\\gltf\\GLTF.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/hellowebgpu/BoxMesh.js",
-      "to": "examples/hellowebgpu/uniformStruct.js"
+      "from": "examples\\hellowebgpu\\BoxMesh.ts",
+      "to": "examples\\hellowebgpu\\cube.wgsl"
     },
     {
-      "from": "examples/hellowebgpu/BoxMesh.js",
+      "from": "examples\\hellowebgpu\\BoxMesh.ts",
+      "to": "examples\\hellowebgpu\\uniformStruct.ts"
+    },
+    {
+      "from": "examples\\hellowebgpu\\BoxMesh.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/hellowebgpu/HelloWebGPU.js",
-      "to": "examples/hellowebgpu/BoxMesh.js"
+      "from": "examples\\hellowebgpu\\BoxMesh.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/hellowebgpu/HelloWebGPU.js",
-      "to": "examples/hellowebgpu/cube.wgsl"
+      "from": "examples\\hellowebgpu\\HelloWebGPU.ts",
+      "to": "examples\\hellowebgpu\\BoxMesh.ts"
     },
     {
-      "from": "examples/hellowebgpu/HelloWebGPU.js",
-      "to": "examples/hellowebgpu/uniformStruct.js"
+      "from": "examples\\hellowebgpu\\HelloWebGPU.ts",
+      "to": "examples\\hellowebgpu\\cube.wgsl"
     },
     {
-      "from": "examples/hellowebgpu/HelloWebGPU.js",
+      "from": "examples\\hellowebgpu\\HelloWebGPU.ts",
+      "to": "examples\\hellowebgpu\\uniformStruct.ts"
+    },
+    {
+      "from": "examples\\hellowebgpu\\HelloWebGPU.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/hellowebgpu/uniformStruct.js",
+      "from": "examples\\hellowebgpu\\HelloWebGPU.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "examples\\hellowebgpu\\uniformStruct.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/hellowebgpu/uniformStruct.js",
+      "from": "examples\\hellowebgpu\\uniformStruct.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "examples/instancing/Instancing.js",
-      "to": "examples/instancing/instances.wgsl"
+      "from": "examples\\hellowebgpu\\uniformStruct.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/instancing/Instancing.js",
+      "from": "examples\\instancing\\Instancing.ts",
+      "to": "examples\\instancing\\instances.wgsl"
+    },
+    {
+      "from": "examples\\instancing\\Instancing.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/instancingpicking/InstancingPicking.js",
-      "to": "examples/instancingpicking/instances.wgsl"
+      "from": "examples\\instancing\\Instancing.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/instancingpicking/InstancingPicking.js",
-      "to": "examples/instancingpicking/picking.wgsl"
+      "from": "examples\\instancingpicking\\InstancingPicking.ts",
+      "to": "examples\\instancingpicking\\instances.wgsl"
     },
     {
-      "from": "examples/instancingpicking/InstancingPicking.js",
+      "from": "examples\\instancingpicking\\InstancingPicking.ts",
+      "to": "examples\\instancingpicking\\picking.wgsl"
+    },
+    {
+      "from": "examples\\instancingpicking\\InstancingPicking.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/instancingpicking/InstancingPicking.js",
+      "from": "examples\\instancingpicking\\InstancingPicking.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "examples/ktx/KTX.js",
-      "to": "examples/ktx/ktx.wgsl"
+      "from": "examples\\instancingpicking\\InstancingPicking.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/ktx/KTX.js",
+      "from": "examples\\ktx\\KTX.ts",
+      "to": "examples\\ktx\\ktx.wgsl"
+    },
+    {
+      "from": "examples\\ktx\\KTX.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/msaa/MSAA.js",
-      "to": "examples/msaa/display.wgsl"
+      "from": "examples\\ktx\\KTX.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/msaa/MSAA.js",
-      "to": "examples/sorttransparency/sorttransparency.wgsl"
+      "from": "examples\\Loader.ts",
+      "to": "src\\core\\Renderer.ts"
     },
     {
-      "from": "examples/msaa/MSAA.js",
+      "from": "examples\\msaa\\MSAA.ts",
+      "to": "examples\\msaa\\display.wgsl"
+    },
+    {
+      "from": "examples\\msaa\\MSAA.ts",
+      "to": "examples\\sorttransparency\\sorttransparency.wgsl"
+    },
+    {
+      "from": "examples\\msaa\\MSAA.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/orbitcontrols/OrbitControls.js",
-      "to": "examples/orbitcontrols/orbit.wgsl"
+      "from": "examples\\msaa\\MSAA.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/orbitcontrols/OrbitControls.js",
+      "from": "examples\\orbitcontrols\\OrbitControls.ts",
+      "to": "examples\\orbitcontrols\\orbit.wgsl"
+    },
+    {
+      "from": "examples\\orbitcontrols\\OrbitControls.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/particles/Particles.js",
-      "to": "examples/particles/particles.wgsl"
+      "from": "examples\\orbitcontrols\\OrbitControls.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/particles/Particles.js",
-      "to": "examples/particles/sim.wgsl"
+      "from": "examples\\particles\\Particles.ts",
+      "to": "examples\\particles\\particles.wgsl"
     },
     {
-      "from": "examples/particles/Particles.js",
+      "from": "examples\\particles\\Particles.ts",
+      "to": "examples\\particles\\sim.wgsl"
+    },
+    {
+      "from": "examples\\particles\\Particles.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/particles/Particles.js",
+      "from": "examples\\particles\\Particles.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
-      "to": "examples/pbrshader/probe.wgsl"
+      "from": "examples\\particles\\Particles.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
-      "to": "examples/pbrshader/shadow.wgsl"
+      "from": "examples\\pbrshader\\PBRShader.ts",
+      "to": "examples\\pbrshader\\probe.wgsl"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
+      "from": "examples\\pbrshader\\PBRShader.ts",
+      "to": "examples\\pbrshader\\shadow.wgsl"
+    },
+    {
+      "from": "examples\\pbrshader\\PBRShader.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
+      "from": "examples\\pbrshader\\PBRShader.ts",
       "to": "pkg:tweakpane"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
+      "from": "examples\\pbrshader\\PBRShader.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
-      "to": "src/modules/pbr/brdflut.wgsl"
+      "from": "examples\\pbrshader\\PBRShader.ts",
+      "to": "src\\modules\\pbr\\brdflut.wgsl"
     },
     {
-      "from": "examples/pbrshader/PBRShader.js",
-      "to": "src/modules/pbr/pbr.wgsl"
+      "from": "examples\\pbrshader\\PBRShader.ts",
+      "to": "src\\modules\\pbr\\pbr.wgsl"
     },
     {
-      "from": "examples/primitives/Primitives.js",
-      "to": "examples/primitives/primitives.wgsl"
+      "from": "examples\\pbrshader\\PBRShader.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/primitives/Primitives.js",
+      "from": "examples\\primitives\\Primitives.ts",
+      "to": "examples\\primitives\\primitives.wgsl"
+    },
+    {
+      "from": "examples\\primitives\\Primitives.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/raycasting/Raycasting.js",
-      "to": "examples/raycasting/raycast.wgsl"
+      "from": "examples\\primitives\\Primitives.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/raycasting/Raycasting.js",
+      "from": "examples\\raycasting\\Raycasting.ts",
+      "to": "examples\\raycasting\\raycast.wgsl"
+    },
+    {
+      "from": "examples\\raycasting\\Raycasting.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/rendertotexture/RenderToTexture.js",
-      "to": "examples/rendertotexture/cube.wgsl"
+      "from": "examples\\raycasting\\Raycasting.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/rendertotexture/RenderToTexture.js",
-      "to": "examples/rendertotexture/display.wgsl"
+      "from": "examples\\rendertotexture\\RenderToTexture.ts",
+      "to": "examples\\rendertotexture\\cube.wgsl"
     },
     {
-      "from": "examples/rendertotexture/RenderToTexture.js",
+      "from": "examples\\rendertotexture\\RenderToTexture.ts",
+      "to": "examples\\rendertotexture\\display.wgsl"
+    },
+    {
+      "from": "examples\\rendertotexture\\RenderToTexture.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/scenegraph/SceneGraph.js",
-      "to": "examples/scenegraph/scenegraph.wgsl"
+      "from": "examples\\rendertotexture\\RenderToTexture.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/scenegraph/SceneGraph.js",
+      "from": "examples\\scenegraph\\SceneGraph.ts",
+      "to": "examples\\scenegraph\\scenegraph.wgsl"
+    },
+    {
+      "from": "examples\\scenegraph\\SceneGraph.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/shadowmapping/Shadowmapping.js",
-      "to": "examples/shadowmapping/cube.wgsl"
+      "from": "examples\\scenegraph\\SceneGraph.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/shadowmapping/Shadowmapping.js",
-      "to": "examples/shadowmapping/shadow.wgsl"
+      "from": "examples\\shadowmapping\\Shadowmapping.ts",
+      "to": "examples\\shadowmapping\\cube.wgsl"
     },
     {
-      "from": "examples/shadowmapping/Shadowmapping.js",
+      "from": "examples\\shadowmapping\\Shadowmapping.ts",
+      "to": "examples\\shadowmapping\\shadow.wgsl"
+    },
+    {
+      "from": "examples\\shadowmapping\\Shadowmapping.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/shadowmapping/Shadowmapping.js",
+      "from": "examples\\shadowmapping\\Shadowmapping.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "examples/skinning/Skinning.js",
-      "to": "examples/skinning/shadow.wgsl"
+      "from": "examples\\shadowmapping\\Shadowmapping.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/skinning/Skinning.js",
-      "to": "examples/skinning/skinnedmesh.wgsl"
+      "from": "examples\\skinning\\Skinning.ts",
+      "to": "examples\\skinning\\shadow.wgsl"
     },
     {
-      "from": "examples/skinning/Skinning.js",
+      "from": "examples\\skinning\\Skinning.ts",
+      "to": "examples\\skinning\\skinnedmesh.wgsl"
+    },
+    {
+      "from": "examples\\skinning\\Skinning.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/sorttransparency/SortTransparency.js",
-      "to": "examples/sorttransparency/sorttransparency.wgsl"
+      "from": "examples\\skinning\\Skinning.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/sorttransparency/SortTransparency.js",
+      "from": "examples\\sorttransparency\\SortTransparency.ts",
+      "to": "examples\\sorttransparency\\sorttransparency.wgsl"
+    },
+    {
+      "from": "examples\\sorttransparency\\SortTransparency.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/textures/Textures.js",
-      "to": "examples/textures/texturedObj.wgsl"
+      "from": "examples\\sorttransparency\\SortTransparency.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/textures/Textures.js",
+      "from": "examples\\textures\\Textures.ts",
+      "to": "examples\\textures\\texturedObj.wgsl"
+    },
+    {
+      "from": "examples\\textures\\Textures.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "examples/triangle/Triangle.js",
-      "to": "examples/triangle/triangle.wgsl"
+      "from": "examples\\textures\\Textures.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "examples/triangle/Triangle.js",
+      "from": "examples\\triangle\\Triangle.ts",
+      "to": "examples\\triangle\\triangle.wgsl"
+    },
+    {
+      "from": "examples\\triangle\\Triangle.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "src/core/Camera.js",
+      "from": "examples\\triangle\\Triangle.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\Camera.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/core/Camera.js",
-      "to": "src/core/Transform.js"
+      "from": "src\\core\\Camera.ts",
+      "to": "src\\core\\Transform.ts"
     },
     {
-      "from": "src/core/ComputeShader.js",
+      "from": "src\\core\\ComputeShader.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/ComputeShader.js",
-      "to": "src/core/ShaderReload.js"
+      "from": "src\\core\\ComputeShader.ts",
+      "to": "src\\core\\ShaderReload.ts"
     },
     {
-      "from": "src/core/ComputeShader.js",
-      "to": "src/utils/wgslOverrides.js"
+      "from": "src\\core\\ComputeShader.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/core/Geometry.js",
+      "from": "src\\core\\ComputeShader.ts",
+      "to": "src\\utils\\wgslOverrides.ts"
+    },
+    {
+      "from": "src\\core\\Geometry.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/core/Geometry.js",
+      "from": "src\\core\\Geometry.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/index.js",
+      "from": "src\\core\\Geometry.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\index.ts",
       "to": "pkg:@core"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/Camera.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\Camera.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/ComputeShader.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\ComputeShader.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/Mesh.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\Mesh.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/primitives/index.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\primitives\\index.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/Renderer.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\Renderer.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/RenderPipeline.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\RenderPipeline.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/RenderTarget.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\RenderTarget.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/skin/Skin.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\skin\\Skin.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/Texture.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\Texture.ts"
     },
     {
-      "from": "src/core/index.js",
-      "to": "src/core/Transform.js"
+      "from": "src\\core\\index.ts",
+      "to": "src\\core\\Transform.ts"
     },
     {
-      "from": "src/core/Mesh.js",
+      "from": "src\\core\\Mesh.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/core/Mesh.js",
+      "from": "src\\core\\Mesh.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/Mesh.js",
-      "to": "src/core/Transform.js"
+      "from": "src\\core\\Mesh.ts",
+      "to": "src\\core\\Camera.ts"
     },
     {
-      "from": "src/core/Mesh.js",
-      "to": "src/utils/BufferUtils.js"
+      "from": "src\\core\\Mesh.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Box.js",
+      "from": "src\\core\\Mesh.ts",
+      "to": "src\\core\\RenderPipeline.ts"
+    },
+    {
+      "from": "src\\core\\Mesh.ts",
+      "to": "src\\core\\Transform.ts"
+    },
+    {
+      "from": "src\\core\\Mesh.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\Mesh.ts",
+      "to": "src\\utils\\BufferUtils.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Box.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Box.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Box.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Cone.js",
+      "from": "src\\core\\primitives\\Box.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Cone.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Cone.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Cone.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Cylinder.js",
+      "from": "src\\core\\primitives\\Cone.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Cylinder.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Cylinder.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Cylinder.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Disc.js",
+      "from": "src\\core\\primitives\\Cylinder.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Disc.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Disc.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Disc.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/FullscreenTriangle.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Disc.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Box.js"
+      "from": "src\\core\\primitives\\FullscreenTriangle.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Cone.js"
+      "from": "src\\core\\primitives\\FullscreenTriangle.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Cylinder.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Box.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Disc.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Cone.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/FullscreenTriangle.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Cylinder.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/index.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Disc.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Plane.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\FullscreenTriangle.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Quad.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\index.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Sphere.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Plane.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/ThreeDF.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Quad.ts"
     },
     {
-      "from": "src/core/primitives/index.js",
-      "to": "src/core/primitives/Torus.js"
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Sphere.ts"
     },
     {
-      "from": "src/core/primitives/Plane.js",
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\ThreeDF.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\index.ts",
+      "to": "src\\core\\primitives\\Torus.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Plane.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Plane.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Plane.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Quad.js",
+      "from": "src\\core\\primitives\\Plane.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Quad.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Quad.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Quad.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Sphere.js",
+      "from": "src\\core\\primitives\\Quad.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Sphere.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Sphere.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Sphere.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/ThreeDF.js",
+      "from": "src\\core\\primitives\\Sphere.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\ThreeDF.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/ThreeDF.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\ThreeDF.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/primitives/Torus.js",
+      "from": "src\\core\\primitives\\ThreeDF.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\primitives\\Torus.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/primitives/Torus.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\core\\primitives\\Torus.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/Renderer.js",
+      "from": "src\\core\\primitives\\Torus.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\Renderer.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/core/Renderer.js",
-      "to": "src/utils/miscutils.js"
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\core\\Camera.ts"
     },
     {
-      "from": "src/core/Renderer.js",
-      "to": "src/utils/TimingHelper.js"
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\core\\Mesh.ts"
     },
     {
-      "from": "src/core/Renderer.js",
-      "to": "src/utils/utils.js"
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\core\\RenderTarget.ts"
     },
     {
-      "from": "src/core/RenderPipeline.js",
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\core\\Transform.ts"
+    },
+    {
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\utils\\miscutils.ts"
+    },
+    {
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\utils\\TimingHelper.ts"
+    },
+    {
+      "from": "src\\core\\Renderer.ts",
+      "to": "src\\utils\\utils.ts"
+    },
+    {
+      "from": "src\\core\\RenderPipeline.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/RenderPipeline.js",
-      "to": "src/core/ShaderReload.js"
+      "from": "src\\core\\RenderPipeline.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/core/RenderPipeline.js",
-      "to": "src/utils/wgslOverrides.js"
+      "from": "src\\core\\RenderPipeline.ts",
+      "to": "src\\core\\ShaderReload.ts"
     },
     {
-      "from": "src/core/RenderTarget.js",
-      "to": "src/core/Texture.js"
+      "from": "src\\core\\RenderPipeline.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/core/ShaderReload.js",
-      "to": "src/core/x.wgsl"
+      "from": "src\\core\\RenderPipeline.ts",
+      "to": "src\\utils\\wgslOverrides.ts"
     },
     {
-      "from": "src/core/skin/Skin.js",
+      "from": "src\\core\\RenderTarget.ts",
+      "to": "src\\core\\Texture.ts"
+    },
+    {
+      "from": "src\\core\\RenderTarget.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\ShaderReload.ts",
+      "to": "src\\core\\x.wgsl"
+    },
+    {
+      "from": "src\\core\\skin\\Skin.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/core/skin/Skin.js",
-      "to": "src/core/ComputeShader.js"
+      "from": "src\\core\\skin\\Skin.ts",
+      "to": "src\\core\\ComputeShader.ts"
     },
     {
-      "from": "src/core/skin/Skin.js",
-      "to": "src/core/skin/skin.wgsl"
+      "from": "src\\core\\skin\\Skin.ts",
+      "to": "src\\core\\skin\\skin.wgsl"
     },
     {
-      "from": "src/core/skin/Skin.js",
-      "to": "src/core/Transform.js"
+      "from": "src\\core\\skin\\Skin.ts",
+      "to": "src\\core\\Transform.ts"
     },
     {
-      "from": "src/core/skin/Skin.js",
-      "to": "src/utils/BufferUtils.js"
+      "from": "src\\core\\skin\\Skin.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/core/Texture.js",
+      "from": "src\\core\\skin\\Skin.ts",
+      "to": "src\\utils\\BufferUtils.ts"
+    },
+    {
+      "from": "src\\core\\Texture.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/core/Transform.js",
+      "from": "src\\core\\Texture.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\core\\Transform.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/index.js",
+      "from": "src\\index.ts",
       "to": "pkg:ogpu"
     },
     {
-      "from": "src/index.js",
-      "to": "src/core/index.js"
+      "from": "src\\index.ts",
+      "to": "src\\core\\index.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/math/index.js"
+      "from": "src\\index.ts",
+      "to": "src\\math\\index.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/Animation.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\Animation.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/CubeMap.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\CubeMap.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/GLTFLoader.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\GLTFLoader.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/GUI.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\GUI.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/KTXTexture.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\KTXTexture.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/Orbit.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\Orbit.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/Raycast.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\Raycast.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/modules/VideoTexture.js"
+      "from": "src\\index.ts",
+      "to": "src\\modules\\VideoTexture.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/utils/BufferUtils.js"
+      "from": "src\\index.ts",
+      "to": "src\\utils\\BufferUtils.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/utils/IBLUtils/IBLUtils.js"
+      "from": "src\\index.ts",
+      "to": "src\\utils\\IBLUtils\\IBLUtils.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/utils/JSONLoader.js"
+      "from": "src\\index.ts",
+      "to": "src\\utils\\JSONLoader.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/utils/TimingHelper.js"
+      "from": "src\\index.ts",
+      "to": "src\\utils\\TimingHelper.ts"
     },
     {
-      "from": "src/index.js",
-      "to": "src/utils/wgslOverrides.js"
+      "from": "src\\index.ts",
+      "to": "src\\utils\\wgslOverrides.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/computefrustumculling/ComputeFrustumCulling.js"
+      "from": "src\\main.ts",
+      "to": "examples\\computefrustumculling\\ComputeFrustumCulling.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/cubemap/CubeMap.js"
+      "from": "src\\main.ts",
+      "to": "examples\\cubemap\\CubeMap.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/examples.css"
+      "from": "src\\main.ts",
+      "to": "examples\\examples.css"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/frustumculling/FrustumCulling.js"
+      "from": "src\\main.ts",
+      "to": "examples\\frustumculling\\FrustumCulling.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/gltf/GLTF.js"
+      "from": "src\\main.ts",
+      "to": "examples\\gltf\\GLTF.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/hellowebgpu/HelloWebGPU.js"
+      "from": "src\\main.ts",
+      "to": "examples\\hellowebgpu\\HelloWebGPU.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/instancing/Instancing.js"
+      "from": "src\\main.ts",
+      "to": "examples\\instancing\\Instancing.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/instancingpicking/InstancingPicking.js"
+      "from": "src\\main.ts",
+      "to": "examples\\instancingpicking\\InstancingPicking.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/ktx/KTX.js"
+      "from": "src\\main.ts",
+      "to": "examples\\ktx\\KTX.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/Loader.js"
+      "from": "src\\main.ts",
+      "to": "examples\\Loader.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/msaa/MSAA.js"
+      "from": "src\\main.ts",
+      "to": "examples\\msaa\\MSAA.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/orbitcontrols/OrbitControls.js"
+      "from": "src\\main.ts",
+      "to": "examples\\orbitcontrols\\OrbitControls.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/particles/Particles.js"
+      "from": "src\\main.ts",
+      "to": "examples\\particles\\Particles.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/pbrshader/PBRShader.js"
+      "from": "src\\main.ts",
+      "to": "examples\\pbrshader\\PBRShader.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/primitives/Primitives.js"
+      "from": "src\\main.ts",
+      "to": "examples\\primitives\\Primitives.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/raycasting/Raycasting.js"
+      "from": "src\\main.ts",
+      "to": "examples\\raycasting\\Raycasting.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/rendertotexture/RenderToTexture.js"
+      "from": "src\\main.ts",
+      "to": "examples\\rendertotexture\\RenderToTexture.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/scenegraph/SceneGraph.js"
+      "from": "src\\main.ts",
+      "to": "examples\\scenegraph\\SceneGraph.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/shadowmapping/Shadowmapping.js"
+      "from": "src\\main.ts",
+      "to": "examples\\shadowmapping\\Shadowmapping.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/skinning/Skinning.js"
+      "from": "src\\main.ts",
+      "to": "examples\\skinning\\Skinning.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/sorttransparency/SortTransparency.js"
+      "from": "src\\main.ts",
+      "to": "examples\\sorttransparency\\SortTransparency.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/textures/Textures.js"
+      "from": "src\\main.ts",
+      "to": "examples\\textures\\Textures.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "examples/triangle/Triangle.js"
+      "from": "src\\main.ts",
+      "to": "examples\\triangle\\Triangle.ts"
     },
     {
-      "from": "src/main.js",
-      "to": "src/style.css"
+      "from": "src\\main.ts",
+      "to": "src\\style.css"
     },
     {
-      "from": "src/math/Euler.js",
+      "from": "src\\math\\Euler.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/math/Euler.js",
-      "to": "src/math/Quat.js"
+      "from": "src\\math\\Euler.ts",
+      "to": "src\\math\\Quat.ts"
     },
     {
-      "from": "src/math/Euler.js",
-      "to": "src/utils/EulerUtils.js"
+      "from": "src\\math\\Euler.ts",
+      "to": "src\\utils\\EulerUtils.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Color.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Color.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Euler.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Euler.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Mat3.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Mat3.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Mat4.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Mat4.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Quat.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Quat.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Vec2.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Vec2.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Vec3.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Vec3.ts"
     },
     {
-      "from": "src/math/index.js",
-      "to": "src/math/Vec4.js"
+      "from": "src\\math\\index.ts",
+      "to": "src\\math\\Vec4.ts"
     },
     {
-      "from": "src/math/Mat3.js",
+      "from": "src\\math\\Mat3.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/math/Mat3.js",
-      "to": "src/utils/Mat3Utils.js"
+      "from": "src\\math\\Mat3.ts",
+      "to": "src\\utils\\Mat3Utils.ts"
     },
     {
-      "from": "src/math/Mat4.js",
+      "from": "src\\math\\Mat4.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/math/Mat4.js",
-      "to": "src/utils/Mat4Utils.js"
+      "from": "src\\math\\Mat4.ts",
+      "to": "src\\math\\Quat.ts"
     },
     {
-      "from": "src/math/Quat.js",
+      "from": "src\\math\\Mat4.ts",
+      "to": "src\\math\\Vec3.ts"
+    },
+    {
+      "from": "src\\math\\Mat4.ts",
+      "to": "src\\utils\\Mat4Utils.ts"
+    },
+    {
+      "from": "src\\math\\Quat.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/math/Vec2.js",
+      "from": "src\\math\\Vec2.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/math/Vec3.js",
+      "from": "src\\math\\Vec3.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/math/Vec4.js",
+      "from": "src\\math\\Vec4.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/modules/Animation.js",
+      "from": "src\\modules\\Animation.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/modules/CubeMap.js",
-      "to": "src/core/Texture.js"
+      "from": "src\\modules\\Animation.ts",
+      "to": "src\\core\\Transform.ts"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
+      "from": "src\\modules\\CubeMap.ts",
+      "to": "src\\core\\Texture.ts"
+    },
+    {
+      "from": "src\\modules\\CubeMap.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\modules\\GLTFLoader.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
+      "from": "src\\modules\\GLTFLoader.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
-      "to": "src/core/Geometry.js"
+      "from": "src\\modules\\GLTFLoader.ts",
+      "to": "src\\core\\Geometry.ts"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
-      "to": "src/core/Mesh.js"
+      "from": "src\\modules\\GLTFLoader.ts",
+      "to": "src\\core\\Mesh.ts"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
-      "to": "src/core/RenderPipeline.js"
+      "from": "src\\modules\\GLTFLoader.ts",
+      "to": "src\\core\\RenderPipeline.ts"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
-      "to": "src/core/Transform.js"
+      "from": "src\\modules\\GLTFLoader.ts",
+      "to": "src\\core\\Transform.ts"
     },
     {
-      "from": "src/modules/GLTFLoader.js",
-      "to": "src/utils/BufferUtils.js"
+      "from": "src\\modules\\GLTFLoader.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/modules/GUI.js",
+      "from": "src\\modules\\GLTFLoader.ts",
+      "to": "src\\utils\\BufferUtils.ts"
+    },
+    {
+      "from": "src\\modules\\GUI.ts",
       "to": "pkg:tweakpane"
     },
     {
-      "from": "src/modules/KTXTexture.js",
-      "to": "src/core/Texture.js"
+      "from": "src\\modules\\KTXTexture.ts",
+      "to": "src\\core\\Texture.ts"
     },
     {
-      "from": "src/modules/KTXTexture.js",
-      "to": "src/utils/ktxutils.js"
+      "from": "src\\modules\\KTXTexture.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/modules/Orbit.js",
+      "from": "src\\modules\\KTXTexture.ts",
+      "to": "src\\utils\\ktxutils.ts"
+    },
+    {
+      "from": "src\\modules\\Orbit.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/modules/Raycast.js",
+      "from": "src\\modules\\Orbit.ts",
+      "to": "src\\core\\Transform.ts"
+    },
+    {
+      "from": "src\\modules\\Raycast.ts",
       "to": "pkg:@math"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
+      "from": "src\\modules\\Raycast.ts",
+      "to": "src\\core\\Camera.ts"
+    },
+    {
+      "from": "src\\modules\\Raycast.ts",
+      "to": "src\\core\\Mesh.ts"
+    },
+    {
+      "from": "src\\modules\\Raycast.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\modules\\VideoTexture.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\types.ts",
+      "to": "pkg:@math"
+    },
+    {
+      "from": "src\\types.ts",
+      "to": "src\\core\\Renderer.ts"
+    },
+    {
+      "from": "src\\utils\\BufferUtils.ts",
+      "to": "src\\types.ts"
+    },
+    {
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
       "to": "pkg:parse-exr"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
       "to": "pkg:webgpu-utils"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/core/Texture.js"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\core\\Texture.ts"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/utils/BufferUtils.js"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\types.ts"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/utils/IBLUtils/ggx.wgsl"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\utils\\BufferUtils.ts"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/utils/IBLUtils/unpackequirect.wgsl"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\utils\\IBLUtils\\ggx.wgsl"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/utils/IBLUtils/unpackoct.wgsl"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\utils\\IBLUtils\\unpackequirect.wgsl"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/utils/JSONLoader.js"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\utils\\IBLUtils\\unpackoct.wgsl"
     },
     {
-      "from": "src/utils/IBLUtils/IBLUtils.js",
-      "to": "src/utils/ktxutils.js"
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\utils\\JSONLoader.ts"
     },
     {
-      "from": "src/utils/Mat3Utils.js",
+      "from": "src\\utils\\IBLUtils\\IBLUtils.ts",
+      "to": "src\\utils\\ktxutils.ts"
+    },
+    {
+      "from": "src\\utils\\Mat3Utils.ts",
       "to": "pkg:wgpu-matrix"
     },
     {
-      "from": "src/utils/Mat4Utils.js",
+      "from": "src\\utils\\Mat4Utils.ts",
       "to": "pkg:wgpu-matrix"
     }
   ]

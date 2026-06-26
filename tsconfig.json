@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "types": ["@webgpu/types"],
+        "strict": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "useDefineForClassFields": false,
+        "verbatimModuleSyntax": false,
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "@core": ["./src/core/index.ts"],
+            "@core/*": ["./src/core/*"],
+            "@math": ["./src/math/index.ts"],
+            "@math/*": ["./src/math/*"],
+            "@modules": ["./src/modules/index.ts"],
+            "@modules/*": ["./src/modules/*"],
+            "@utils": ["./src/utils/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@examples/*": ["./examples/*"],
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["src", "examples"],
+    "exclude": ["node_modules", "dist"]
+}
