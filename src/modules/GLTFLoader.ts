@@ -2,11 +2,12 @@
 // a Transform graph of Mesh nodes, one RenderPipeline per primitive.
 // Ref: https://toji.dev/webgpu-gltf-case-study/
 
-import { generateMipmap, numMipLevels, makeStructuredView } from 'webgpu-utils';
+import { makeStructuredView } from 'webgpu-utils';
 import { createUniformBuffer } from '@utils/BufferUtils';
 import { Vec3, Quat, Mat4 } from '@math';
 
 import { Geometry } from '@core/Geometry';
+import { Texture } from '@core/Texture';
 import { Mesh } from '@core/Mesh';
 import { Transform } from '@core/Transform';
 import { RenderPipeline } from '@core/RenderPipeline';
@@ -83,7 +84,7 @@ export class GLTFLoader {
     images!: any[];
     textures!: any[];
     samplers!: any[];
-    _textureCache: Map<string, Promise<GPUTexture>>;
+    _textureCache: Map<string, Promise<Texture>>;
     _defaults: any;
     _baseUrl!: string;
 
@@ -670,22 +671,22 @@ export class GLTFLoader {
     // multiplies by the material factors, so white here = factor-only output
     // (metallic/roughness/AO come straight from metallicFactor/roughnessFactor/
     // occlusionStrength).
-    _solidTexture([r, g, b, a]: [number, number, number, number], srgb: boolean): GPUTexture {
+    _solidTexture([r, g, b, a]: [number, number, number, number], srgb: boolean): Texture {
         const size = 2;
-        const tex = this.gpu.device.createTexture({
-            size: [size, size],
-            format: srgb ? 'rgba8unorm-srgb' : 'rgba8unorm',
-            usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST,
-        });
         const pixels = new Uint8Array(size * size * 4);
         for (let i = 0; i < size * size; i++) pixels.set([r, g, b, a], i * 4);
-        this.gpu.device.queue.writeTexture({ texture: tex }, pixels, { bytesPerRow: size * 4, rowsPerImage: size }, [size, size]);
-        return tex;
+        return new Texture(this.gpu, {
+            label: 'gltf-solid',
+            width: size,
+            height: size,
+            data: pixels,
+            format: srgb ? 'rgba8unorm-srgb' : 'rgba8unorm',
+        });
     }
 
     // textureInfo: { index, texCoord } from the material. kind selects the fallback.
-    // Returns a Promise<GPUTexture>; decoding is deduped per (image, colorSpace).
-    _materialTexture(textureInfo: any, srgb: boolean, kind = 'white'): Promise<GPUTexture> {
+    // Returns a Promise<Texture>; decoding is deduped per (image, colorSpace).
+    _materialTexture(textureInfo: any, srgb: boolean, kind = 'white'): Promise<Texture> {
         if (!textureInfo || textureInfo.index === undefined) {
             return Promise.resolve(kind === 'normal' ? this._defaults.black : srgb ? this._defaults.white : this._defaults.whiteLin);
         }
@@ -697,7 +698,7 @@ export class GLTFLoader {
         return this._textureCache.get(cacheKey)!;
     }
 
-    async _decodeImage(imageIndex: number, srgb: boolean): Promise<GPUTexture> {
+    async _decodeImage(imageIndex: number, srgb: boolean): Promise<Texture> {
         const image = this.images[imageIndex];
         let blob;
         if (image.uri !== undefined) {
@@ -711,20 +712,14 @@ export class GLTFLoader {
         }
 
         const bitmap = await createImageBitmap(blob, { colorSpaceConversion: 'none' });
-        return this._textureFromBitmap(bitmap, srgb);
-    }
-
-    _textureFromBitmap(bitmap: ImageBitmap, srgb: boolean): GPUTexture {
-        const { width, height } = bitmap;
-        const mipLevelCount = numMipLevels([width, height]);
-        const tex = this.gpu.device.createTexture({
-            size: [width, height],
+        const tex = new Texture(this.gpu, {
+            label: 'gltf-image',
+            src: bitmap,
+            mips: true,
+            flipY: false,
             format: srgb ? 'rgba8unorm-srgb' : 'rgba8unorm',
-            mipLevelCount,
-            usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST | GPUTextureUsage.RENDER_ATTACHMENT,
         });
-        this.gpu.device.queue.copyExternalImageToTexture({ source: bitmap, flipY: false }, { texture: tex }, [width, height]);
-        if (mipLevelCount > 1) generateMipmap(this.gpu.device, tex);
+        await tex.ready;
         return tex;
     }
 }
