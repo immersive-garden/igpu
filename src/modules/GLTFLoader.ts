@@ -1,5 +1,5 @@
 // glTF/glb loader: parse chunks, decode accessors to packed typed arrays, build
-// a Transform graph of Mesh nodes, one RenderPipeline per primitive.
+// a Transform graph of Mesh nodes sharing a small pool of RenderPipelines.
 // Ref: https://toji.dev/webgpu-gltf-case-study/
 
 import { makeStructuredView } from 'webgpu-utils';
@@ -59,8 +59,10 @@ const CHUNK_BIN = 0x004e4942; // 'BIN\0'
 //
 // Diverges from toji.dev's zero-copy bufferView upload: accessors are decoded to
 // packed typed arrays so they flow through the existing Geometry abstraction, and
-// because the engine writes per-mesh uniforms each draw, pipelines are built per
-// primitive rather than instanced through a transform storage buffer. The rest of
+// because the engine writes per-mesh uniforms each draw, nodes are drawn as
+// individual Mesh draws (each binding its own geometry + material bind group)
+// sharing pipelines keyed by cull/blend state, rather than instanced through a
+// transform storage buffer. The rest of
 // the blog's guidance is followed: glb chunk parsing, accessor componentType ->
 // format mapping, hierarchy traversal, per-material bind groups, sRGB-correct
 // texture creation, sampler defaults, alphaMode -> pipeline state, and mipmaps.
@@ -85,6 +87,7 @@ export class GLTFLoader {
     textures!: any[];
     samplers!: any[];
     _textureCache: Map<string, Promise<Texture>>;
+    _pipelineCache: Map<string, RenderPipeline>;
     _defaults: any;
     _baseUrl!: string;
 
@@ -122,6 +125,11 @@ export class GLTFLoader {
         this.skinnedMeshes = []; // meshes carrying skin attributes
         this.staticMeshes = []; // dataOnly: decoded non-skinned primitives (raw attribute arrays)
         this._textureCache = new Map(); // image index -> GPUTexture
+        // shared pipelines keyed by `cullMode|transparent` — every glTF primitive
+        // has the same vertex layout (position/normal/uv/tangent), so the only
+        // pipeline-state that varies per material is cull + blend. Reusing them
+        // keeps a typical file to 1-2 pipelines instead of one per node.
+        this._pipelineCache = new Map();
         this._defaults = null;
     }
 
@@ -270,16 +278,9 @@ export class GLTFLoader {
         const pbr = material.pbrMetallicRoughness || {};
         const alphaMode = material.alphaMode || 'OPAQUE';
 
-        const pipeline = new RenderPipeline(this.gpu, {
-            label: `${name}-primitive`,
-            code: this.code!,
-            vertexBuffers: geometry.bufferLayouts,
-            constants: this.constants,
-            targets: this.targets ?? undefined,
-            sampleCount: this.sampleCount,
-            cullMode: material.doubleSided ? 'none' : 'back',
-            transparent: alphaMode === 'BLEND',
-        });
+        const cullMode: GPUCullMode = material.doubleSided ? 'none' : 'back';
+        const transparent = alphaMode === 'BLEND';
+        const pipeline = this._getPipeline(geometry, cullMode, transparent);
 
         const [baseColor, metalRough, normalMap, occlusion, emissive] = await Promise.all([
             this._materialTexture(pbr.baseColorTexture, true),
@@ -359,6 +360,30 @@ export class GLTFLoader {
         this.pipelines.push(pipeline);
         this.meshes.push(m);
         return m;
+    }
+
+    // One shared RenderPipeline per (cullMode, transparent) combo. All glTF
+    // primitives carry the identical vertex layout, so a cache miss builds the
+    // pipeline from the current geometry's layout and every later primitive with
+    // the same state reuses it. `this.pipelines` holds the unique set.
+    _getPipeline(geometry: Geometry, cullMode: GPUCullMode, transparent: boolean): RenderPipeline {
+        const key = `${cullMode}|${transparent}`;
+        let pipeline = this._pipelineCache.get(key);
+        if (!pipeline) {
+            pipeline = new RenderPipeline(this.gpu, {
+                label: `gltf-${key}`,
+                code: this.code!,
+                vertexBuffers: geometry.bufferLayouts,
+                constants: this.constants,
+                targets: this.targets ?? undefined,
+                sampleCount: this.sampleCount,
+                cullMode,
+                transparent,
+            });
+            this._pipelineCache.set(key, pipeline);
+            this.pipelines.push(pipeline);
+        }
+        return pipeline;
     }
 
     // ---- accessors ----
