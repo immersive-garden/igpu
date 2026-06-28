@@ -7,6 +7,7 @@ import { Particles } from '@examples/particles/Particles';
 import { RenderToTexture } from '@examples/rendertotexture/RenderToTexture';
 import { PBRShader } from '@examples/pbrshader/PBRShader';
 import { Skinning } from '@examples/skinning/Skinning';
+import { SkinningGLTF } from '@examples/skinninggltf/SkinningGLTF';
 import { GLTF } from '@examples/gltf/GLTF';
 import { Textures } from '@examples/textures/Textures';
 import { KTX } from '@examples/ktx/KTX';
@@ -40,6 +41,7 @@ const views: Record<string, () => any> = {
     orbit: () => new OrbitControls(),
     pbrshader: () => new PBRShader(),
     skinning: () => new Skinning(canvas),
+    skinninggltf: () => new SkinningGLTF(canvas),
     gltf: () => new GLTF(canvas),
     shadowmapping: () => new Shadowmapping(),
     frustumculling: () => new FrustumCulling(),
@@ -103,6 +105,7 @@ function renderLanding() {
         { view: 'gltf', label: 'Load glTF', folder: 'gltf' },
         { section: 'Animation' },
         { view: 'skinning', label: 'Skinning', folder: 'skinning' },
+        { view: 'skinninggltf', label: 'Skinning (glTF) + Shadows', folder: 'skinninggltf' },
     ];
 
     const sourcePath = 'https://github.com/oframe/ogpu/tree/main/examples/';

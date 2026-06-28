@@ -211,6 +211,7 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
   - getGeometryData(meshOrIndex: number | any = 0)
   - getGeometry(meshOrIndex: number | any = 0)
   - getAnimation({ animation = 0, skin = 0, fps = 30 }: { animation?: number; skin?: number; fps?: number …)
+  - getMaterialTexture(materialIndex = 0, map = 'baseColor')
 
 ### src/modules/GUI.ts
 - **class GUI**
@@ -421,6 +422,14 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 - **class Skinning**
   - constructor(canvas: HTMLElement | null)
   - init(canvas: HTMLElement | null)
+  - addCredit(html: string)
+
+### examples/skinninggltf/SkinningGLTF.ts
+- **class SkinningGLTF**
+  - constructor(canvas: HTMLElement | null)
+  - init(canvas: HTMLElement | null)
+  - initIBL({ url = './assets/pbr/artistworkshop_oct.exr', shUrl = './assets/pbr/artistworkshop_sh.js…)
+  - solidTexture(rgba: number[], label: string)
   - addCredit(html: string)
 
 ### examples/sorttransparency/SortTransparency.ts

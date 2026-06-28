@@ -826,6 +826,25 @@ export class GLTFLoader {
         });
     }
 
+    // Decode one material map to an engine Texture. Returns null when the
+    // material lacks that map. map: baseColor | metallicRoughness | normal |
+    // occlusion | emissive.
+    async getMaterialTexture(materialIndex = 0, map = 'baseColor'): Promise<Texture | null> {
+        const material = (this.json as any).materials?.[materialIndex];
+        if (!material) return null;
+        const pbr = material.pbrMetallicRoughness || {};
+        const info = {
+            baseColor: pbr.baseColorTexture,
+            metallicRoughness: pbr.metallicRoughnessTexture,
+            normal: material.normalTexture,
+            occlusion: material.occlusionTexture,
+            emissive: material.emissiveTexture,
+        }[map];
+        if (!info || info.index === undefined) return null;
+        const srgb = map === 'baseColor' || map === 'emissive';
+        return this._decodeImage(this.textures[info.index].source, srgb);
+    }
+
     // textureInfo: { index, texCoord } from the material. kind selects the fallback.
     // Returns a Promise<Texture>; decoding is deduped per (image, colorSpace).
     _materialTexture(textureInfo: any, srgb: boolean, kind = 'white'): Promise<Texture> {

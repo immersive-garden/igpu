@@ -1,16 +1,16 @@
 {
   "description": "Static module dependency graph of src/ for agent navigation. nodes: source files (module), ?raw shaders (shader), packages (external). edges: imports. inDegree = import hubs. Regenerate via scripts/build-module-graph.mjs.",
   "stats": {
-    "nodes": 123,
-    "edges": 288,
-    "modules": 80,
-    "shaders": 36,
+    "nodes": 127,
+    "edges": 295,
+    "modules": 81,
+    "shaders": 39,
     "external": 7
   },
   "hubs": [
     {
       "id": "src/types.ts",
-      "inDegree": 48
+      "inDegree": 49
     },
     {
       "id": "src/core/Geometry.ts",
@@ -347,6 +347,30 @@
       "outDegree": 4
     },
     {
+      "id": "examples/skinninggltf/floor.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples/skinninggltf/shadowcaster.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples/skinninggltf/skinnedmesh.wgsl",
+      "type": "shader",
+      "inDegree": 1,
+      "outDegree": 0
+    },
+    {
+      "id": "examples/skinninggltf/SkinningGLTF.ts",
+      "type": "module",
+      "inDegree": 1,
+      "outDegree": 6
+    },
+    {
       "id": "examples/sorttransparency/SortTransparency.ts",
       "type": "module",
       "inDegree": 1,
@@ -397,7 +421,7 @@
     {
       "id": "pkg:ogpu",
       "type": "external",
-      "inDegree": 24,
+      "inDegree": 25,
       "outDegree": 0
     },
     {
@@ -415,7 +439,7 @@
     {
       "id": "pkg:webgpu-utils",
       "type": "external",
-      "inDegree": 21,
+      "inDegree": 22,
       "outDegree": 0
     },
     {
@@ -584,7 +608,7 @@
       "id": "src/main.ts",
       "type": "module",
       "inDegree": 0,
-      "outDegree": 24
+      "outDegree": 25
     },
     {
       "id": "src/math/Color.ts",
@@ -709,7 +733,7 @@
     {
       "id": "src/types.ts",
       "type": "module",
-      "inDegree": 48,
+      "inDegree": 49,
       "outDegree": 2
     },
     {
@@ -1116,6 +1140,30 @@
     },
     {
       "from": "examples/skinning/Skinning.ts",
+      "to": "src/types.ts"
+    },
+    {
+      "from": "examples/skinninggltf/SkinningGLTF.ts",
+      "to": "examples/skinninggltf/floor.wgsl"
+    },
+    {
+      "from": "examples/skinninggltf/SkinningGLTF.ts",
+      "to": "examples/skinninggltf/shadowcaster.wgsl"
+    },
+    {
+      "from": "examples/skinninggltf/SkinningGLTF.ts",
+      "to": "examples/skinninggltf/skinnedmesh.wgsl"
+    },
+    {
+      "from": "examples/skinninggltf/SkinningGLTF.ts",
+      "to": "pkg:ogpu"
+    },
+    {
+      "from": "examples/skinninggltf/SkinningGLTF.ts",
+      "to": "pkg:webgpu-utils"
+    },
+    {
+      "from": "examples/skinninggltf/SkinningGLTF.ts",
       "to": "src/types.ts"
     },
     {
@@ -1677,6 +1725,10 @@
     {
       "from": "src/main.ts",
       "to": "examples/skinning/Skinning.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "examples/skinninggltf/SkinningGLTF.ts"
     },
     {
       "from": "src/main.ts",
