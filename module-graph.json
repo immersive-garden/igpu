@@ -2,7 +2,7 @@
   "description": "Static module dependency graph of src/ for agent navigation. nodes: source files (module), ?raw shaders (shader), packages (external). edges: imports. inDegree = import hubs. Regenerate via scripts/build-module-graph.mjs.",
   "stats": {
     "nodes": 123,
-    "edges": 286,
+    "edges": 288,
     "modules": 80,
     "shaders": 36,
     "external": 7
@@ -547,7 +547,7 @@
     {
       "id": "src/core/skin/Skin.ts",
       "type": "module",
-      "inDegree": 1,
+      "inDegree": 2,
       "outDegree": 6
     },
     {
@@ -643,7 +643,7 @@
     {
       "id": "src/modules/Animation.ts",
       "type": "module",
-      "inDegree": 1,
+      "inDegree": 2,
       "outDegree": 2
     },
     {
@@ -656,7 +656,7 @@
       "id": "src/modules/GLTFLoader.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 9
+      "outDegree": 11
     },
     {
       "id": "src/modules/GUI.ts",
@@ -1816,11 +1816,19 @@
     },
     {
       "from": "src/modules/GLTFLoader.ts",
+      "to": "src/core/skin/Skin.ts"
+    },
+    {
+      "from": "src/modules/GLTFLoader.ts",
       "to": "src/core/Texture.ts"
     },
     {
       "from": "src/modules/GLTFLoader.ts",
       "to": "src/core/Transform.ts"
+    },
+    {
+      "from": "src/modules/GLTFLoader.ts",
+      "to": "src/modules/Animation.ts"
     },
     {
       "from": "src/modules/GLTFLoader.ts",

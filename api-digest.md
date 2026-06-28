@@ -207,6 +207,7 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
   - constructor(gpu: GPU, { code, iblEntries = [], // override constants baked into the shader (e.g. roug…)
   - load(url: string)
   - getSkinData(meshOrIndex: number | any = 0)
+  - getSkinnedMesh({ code, ibl, mesh = 0, animation = 0, fps = 30, label = 'skinned', material = {}, }: { co…)
   - getGeometryData(meshOrIndex: number | any = 0)
   - getGeometry(meshOrIndex: number | any = 0)
   - getAnimation({ animation = 0, skin = 0, fps = 30 }: { animation?: number; skin?: number; fps?: number …)
