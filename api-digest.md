@@ -261,6 +261,7 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 ### src/utils/IBLUtils/IBLUtils.ts
 - fn `loadIBLCubeMap(gpu: GPU, { url, faceSize = DEFAULT_FACE_SIZE, mipLevels = null, label = 'IBL cube' }: IB…)`
 - fn `loadSphericalHarmonics(url: string)`
+- fn `createBrdfLUT(gpu: GPU, { size = 512, label = 'brdflut' }: { size?: number; label?: string } = {})`
 
 ### src/utils/JSONLoader.ts
 - fn `loadJSON(url: string, opts?: RequestInit)`
@@ -451,7 +452,7 @@ Terse public-surface index of `src/` for navigation: read a file’s API without
 - re-export { KTXTexture } from './modules/KTXTexture.js'
 - re-export { createStorageBuffer, createUniformBuffer, createBuffer } from './utils/BufferUtils.js'
 - re-export { loadJSON, loadJSONAll } from './utils/JSONLoader.js'
-- re-export { loadIBLCubeMap, loadSphericalHarmonics } from './utils/IBLUtils/IBLUtils.js'
+- re-export { loadIBLCubeMap, loadSphericalHarmonics, createBrdfLUT } from './utils/IBLUtils/IBLUtils.js'
 - re-export { TimingHelper } from './utils/TimingHelper.js'
 - re-export { applyOverrideConstants } from './utils/wgslOverrides.js'
 

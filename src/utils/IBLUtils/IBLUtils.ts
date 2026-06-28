@@ -1,6 +1,7 @@
 import { makeShaderDataDefinitions, makeStructuredView, generateMipmap } from 'webgpu-utils';
 import parseExr from 'parse-exr';
 import { Texture } from '@core/Texture';
+import { ComputeShader } from '@core/ComputeShader';
 import { createUniformBuffer } from '../BufferUtils';
 import { parseKTXHeader } from '../ktxutils';
 import { loadJSON } from '../JSONLoader';
@@ -9,6 +10,7 @@ import type { GPU } from '@/types';
 import ggx from './ggx.wgsl?raw';
 import unpackOct from './unpackoct.wgsl?raw';
 import unpackEquirect from './unpackequirect.wgsl?raw';
+import brdflut from '@modules/pbr/brdflut.wgsl?raw';
 
 const EXR_FLOAT_TYPE = 1015;
 
@@ -116,6 +118,32 @@ export async function loadSphericalHarmonics(url: string): Promise<Float32Array>
     });
 
     return out;
+}
+
+// Split-sum BRDF integration LUT (rg = scale/bias). One compute dispatch, returns the texture.
+export function createBrdfLUT(gpu: GPU, { size = 512, label = 'brdflut' }: { size?: number; label?: string } = {}): GPUTexture {
+    const texture = gpu.device.createTexture({
+        size: [size, size],
+        format: 'rgba16float',
+        usage: GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_SRC,
+        label: `${label}-texture`,
+    });
+
+    const compute = new ComputeShader(gpu, { label: `${label}-compute`, code: brdflut });
+    const kernel = compute.findKernel('main')!;
+    const bindGroup = gpu.device.createBindGroup({
+        label: `${label}-bind-group`,
+        layout: compute.bindGroupLayout(kernel),
+        entries: [{ binding: 0, resource: texture.createView() }],
+    });
+
+    const encoder = gpu.device.createCommandEncoder({ label: `${label}-encoder` });
+    const pass = encoder.beginComputePass({ label: `${label}-pass` });
+    compute.dispatch(encoder, { pass, kernel, bindGroup, dispatchCount: [size, size, 1] });
+    pass.end();
+    gpu.device.queue.submit([encoder.finish()]);
+
+    return texture;
 }
 
 // ---- shared cube creation / dispatch ----

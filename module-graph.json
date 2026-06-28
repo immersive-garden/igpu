@@ -37,6 +37,10 @@
       "inDegree": 4
     },
     {
+      "id": "src/core/ComputeShader.ts",
+      "inDegree": 3
+    },
+    {
       "id": "src/core/Renderer.ts",
       "inDegree": 3
     },
@@ -51,10 +55,6 @@
     {
       "id": "src/utils/wgslOverrides.ts",
       "inDegree": 3
-    },
-    {
-      "id": "examples/hellowebgpu/cube.wgsl",
-      "inDegree": 2
     }
   ],
   "nodes": [
@@ -122,7 +122,7 @@
       "id": "examples/gltf/GLTF.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 4
+      "outDegree": 3
     },
     {
       "id": "examples/hellowebgpu/BoxMesh.ts",
@@ -242,7 +242,7 @@
       "id": "examples/pbrshader/PBRShader.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 8
+      "outDegree": 7
     },
     {
       "id": "examples/pbrshader/probe.wgsl",
@@ -433,7 +433,7 @@
     {
       "id": "src/core/ComputeShader.ts",
       "type": "module",
-      "inDegree": 2,
+      "inDegree": 3,
       "outDegree": 4
     },
     {
@@ -679,7 +679,7 @@
     {
       "id": "src/modules/pbr/brdflut.wgsl",
       "type": "shader",
-      "inDegree": 2,
+      "inDegree": 1,
       "outDegree": 0
     },
     {
@@ -734,7 +734,7 @@
       "id": "src/utils/IBLUtils/IBLUtils.ts",
       "type": "module",
       "inDegree": 1,
-      "outDegree": 10
+      "outDegree": 12
     },
     {
       "id": "src/utils/IBLUtils/unpackequirect.wgsl",
@@ -849,10 +849,6 @@
     {
       "from": "examples/gltf/GLTF.ts",
       "to": "pkg:ogpu"
-    },
-    {
-      "from": "examples/gltf/GLTF.ts",
-      "to": "src/modules/pbr/brdflut.wgsl"
     },
     {
       "from": "examples/gltf/GLTF.ts",
@@ -1025,10 +1021,6 @@
     {
       "from": "examples/pbrshader/PBRShader.ts",
       "to": "pkg:webgpu-utils"
-    },
-    {
-      "from": "examples/pbrshader/PBRShader.ts",
-      "to": "src/modules/pbr/brdflut.wgsl"
     },
     {
       "from": "examples/pbrshader/PBRShader.ts",
@@ -1904,7 +1896,15 @@
     },
     {
       "from": "src/utils/IBLUtils/IBLUtils.ts",
+      "to": "src/core/ComputeShader.ts"
+    },
+    {
+      "from": "src/utils/IBLUtils/IBLUtils.ts",
       "to": "src/core/Texture.ts"
+    },
+    {
+      "from": "src/utils/IBLUtils/IBLUtils.ts",
+      "to": "src/modules/pbr/brdflut.wgsl"
     },
     {
       "from": "src/utils/IBLUtils/IBLUtils.ts",
